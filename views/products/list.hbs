@@ -1,0 +1,10 @@
+<div class="container">
+    <h1>Listado de productos</h1>
+
+    {{#each allProducts}}
+    <p>{{name}}
+        <a class="btn btn-special-xs btn-dark" href="/products/details/{{_id}}">detalles</a>
+        {{!-- <a class="btn btn-special-xs btn-dark" href="/libros/editar?bookId={{_id}}">editar</a> --}}
+    </p>
+    {{/each}}
+</div>

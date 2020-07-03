@@ -1,6 +1,8 @@
-# Express generator + auth
+# Proyecto SUPA
 
-Boilerplate for a basic ExpressJS backend (incl. all auth routes and views - [PassportJS](http://www.passportjs.org/) login & sessions)
+Project owners:
+· Paola Martin Espinoza
+· Soon Woo Kwon Kim
 
 ## Install
 
