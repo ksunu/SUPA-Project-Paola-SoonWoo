@@ -1,11 +1,5 @@
-body {
-  font-weight: 200; }
-
-h1, h2, h3 {
-  font-weight: 200; }
-
-.navbar {
-  margin-bottom: 70px; }
+* {
+  font-family: 'Yanone Kaffeesatz', sans-serif; }
 
 #errorMsg {
   background-color: red;
@@ -14,5 +8,50 @@ h1, h2, h3 {
   text-align: center;
   padding: 10px 0;
   margin-top: 5px; }
+
+body {
+  font-weight: 200;
+  margin-top: 100px; }
+
+h1,
+h2,
+h3 {
+  font-weight: 200; }
+
+.navbar {
+  margin-bottom: 70px;
+  background-color: #F3EA1A;
+  padding: 0 40px; }
+  .navbar .color-ul a {
+    color: black;
+    margin: 0 10px; }
+
+#main-page img {
+  background-size: cover; }
+
+#main-page h1 {
+  font-family: "Yellowtail", sans-serif;
+  font-size: 4em; }
+
+#main-page p {
+  font-size: 1.4em; }
+
+#main-page footer {
+  background-color: green; }
+
+.logo {
+  font-family: "Yellowtail", sans-serif;
+  font-size: 1.8em;
+  color: black; }
+
+.btn {
+  background-color: #FF7F11;
+  border-radius: 0;
+  color: black;
+  border: none;
+  margin: 5px; }
+
+.btn:hover {
+  background-color: #FFC593; }
 
 /*# sourceMappingURL=style.css.map */
