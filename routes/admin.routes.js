@@ -67,6 +67,37 @@ router.post('/edit', (req, res, next) => {
         .catch(err => console.log("Error en la BBDD", err))
 })
 
+// CREATE NEW USERS
+router.get('/newUser', (req, res, next) => {
+    User.find()
+        .then(allUsers => res.render('private/profile/profileCreate-form', {
+            allUsers
+        }))
+        .catch(err => next(err))
+})
+
+router.post('/newUser', (req, res, next) => {
+    const {
+        username,
+        role,
+        password
+    } = req.body
+
+    User.create({
+            username,
+            role,
+            password
+        })
+        .then(() => res.redirect('/admin/profileList'))
+        .catch(err => next(err))
+})
+
+// DELETE USER
+router.get('/deleteUser', (req, res, next) => {
+    User.findByIdAndDelete(req.query.id)
+        .then(() => res.redirect('/admin/profileList'))
+        .catch(err => next(err))
+})
 
 
 module.exports = router
