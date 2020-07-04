@@ -33,6 +33,8 @@ router.get('/profileList', checkRole(['ADMIN']), (req, res, next) => {
         .catch(err => console.log("DDBB Error", err))
 })
 
+
+
 // ALL USERS DETAILS
 router.get('/profileDetails/:userId', (req, res) => {
     User.findById(req.params.userId)
@@ -43,7 +45,26 @@ router.get('/profileDetails/:userId', (req, res) => {
 // EDIT USERS
 router.get('/edit', (req, res) => {
     User.findById(req.query.userId)
-        .then()
+        .then(theUser => res.render('private/profile/profileEdit-form', theUser))
+        .catch(err => console.log("Error en la BBDD", err))
 })
+
+router.post('/edit/:userId', (req, res, next) => {
+    const {
+        username,
+        role
+    } = req.body
+    User
+        .findByIdAndUpdate(req.params.userId, {
+            username,
+            role
+        }, {
+            new: true
+        })
+        .then(() => res.redirect(`private/profile/profileDetails/${req.params.userId}`))
+        .catch(err => console.log("Error en la BBDD", err))
+})
+
+
 
 module.exports = router
