@@ -1,0 +1,7 @@
+{{#each allUsers}}
+<h1>Username: {{username}}</h1>
+<p>Role: {{role}}</p>
+<p>Pass: {{password}}</p>
+<a class="btn btn-outline-primary btn-sm detalle" href="/admin/profileDetails/{{_id}}">Ver detalles</a><br>
+<a href="/admin/edit?editId={{_id}}"><button class="btn btn-outline-primary btn-sm" type="submit">Edit</button></a>
+{{/each}}
