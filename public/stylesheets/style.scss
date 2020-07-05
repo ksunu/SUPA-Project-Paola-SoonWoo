@@ -34,6 +34,7 @@ h3 {
   }
 }
 
+
 #main-page {
   img {
     background-size: cover;
@@ -57,7 +58,10 @@ h3 {
 .logo {
   font-family: "Yellowtail", sans-serif;
   font-size: 1.8em;
-  color: black;
+  color: #0F3FD4;
+  border: solid rgb(223, 3, 3);
+  border-radius: 60px 60px;
+  padding: 0 10px;
 }
 
 .btn {
@@ -70,4 +74,8 @@ h3 {
 
 .btn:hover {
   background-color: #FFC593;
+}
+
+#myMap {
+  height: 300px;
 }

@@ -21,5 +21,4 @@ require('./configs/locals.config')(app)
 // Routes index
 require('./routes')(app)
 
-
 module.exports = app

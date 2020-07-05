@@ -13,36 +13,43 @@
 </head>
 
 <body>
+  <div class="menu">
+    <nav class="navbar navbar-expand-lg fixed-top">
 
-  <nav class="navbar navbar-expand-lg fixed-top">
+      <a class="logo navbar-brand" href="/">Supa</a>
 
-    <a class="logo navbar-brand" href="/">Supa</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto color-ul">
-        <li class="nav-item">
-          <a class="nav-link" href="/">Inicio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/signup">Registro</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/login">Iniciar sesión</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/logout">Cerrar sesión</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/admin/admin">ADMIN</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto color-ul">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Inicio</a>
+          </li>
+          {{#if isAuthenticated}}
+          <li class="nav-item">
+            <a class="nav-link" href="/client/profile">Perfil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Cerrar sesión</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/admin">ADMIN</a>
+          </li>
+          {{else}}
+          <li class="nav-item">
+            <a class="nav-link" href="/signup">Registro</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Iniciar sesión</a>
+          </li>
+          {{/if}}
+        </ul>
+      </div>
+    </nav>
+  </div>
 
   <main class="container">
     {{{body}}}
