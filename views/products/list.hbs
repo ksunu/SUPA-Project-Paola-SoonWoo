@@ -1,11 +1,18 @@
 <div class="container">
     <h1>Listado de productos</h1>
+    <section class="row">
 
-    {{#each allProducts}}
-    <p>{{name}}
+            {{#each allProducts}}
+        <span class="col-3">
+            <p>{{name}}
+                <br>
+                <img id="imgProduct" src="{{img}}" alt="product image">
+                <a class="btn" href="/products/details/{{_id}}">detalles</a>
+            </p>
 
-        <a class="btn" href="/products/details/{{_id}}">detalles</a>
-        
-    </p>
-    {{/each}}
+
+        </span>
+            {{/each}}
+
+    </section>
 </div>

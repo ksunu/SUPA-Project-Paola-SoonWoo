@@ -1,8 +1,26 @@
 <div class="container">
     <h1>Tu Perfil</h1>
-    <p>{{username}}
+    <ul>
+        <li>Nombre de Usuario:</li>
+        <h3> {{currentUser.username}} </h3>
+        <li>Contraseña</li>
+        <h3> {{currentUser.password}} </h3>
+        <li>Nombre:</li>
+        <h3> {{currentUser.name}} </h3>
+        <li>Dirección:</li>
+        <h3> {{currentUser.address.name}} </h3>
+        <li>Contacto:</li>
+        <h3> {{currentUser.address.contact}} </h3>
+    </ul>
+    <p></p>
+    <a class="btn" href="/client/edit/{{currentUser._id}}">Editar perfil</a>
 
-        <a class="btn" href="/products/details/{{_id}}">detalles</a>
-
-    </p>
 </div>
+
+<figure id="clientMap"></figure>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/javascripts/directions.js"> </script>
+<script src="/javascripts/mapStyles.js"> </script>
+<script src="/javascripts/main.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{api_key}}&callback=initMap"></script>

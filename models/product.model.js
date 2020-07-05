@@ -16,6 +16,9 @@ const productSchema = new mongoose.Schema({
     },
     price: {
         type: Number
+    },
+    img: {
+        type: String
     }
 }, {
     timestamps: true

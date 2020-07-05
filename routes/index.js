@@ -1,8 +1,15 @@
 module.exports = app => {
   const api_key = process.env.GOOGLE_API_KEY
 
+  // isAuthenticated
   app.use((req, res, next) => {
     res.locals.isAuthenticated = req.isAuthenticated()
+    next()
+  })
+
+  // currentUser = req.user
+  app.use((req, res, next) => {
+    res.locals.currentUser = req.user
     next()
   })
 

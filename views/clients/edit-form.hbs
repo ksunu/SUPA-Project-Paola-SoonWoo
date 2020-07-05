@@ -2,21 +2,18 @@
     <div class="row justify-content-center">
         <div class="col-md-5">
 
-            <h1>Editar "{{profileClient.username}}"</h1>
+            <h1>Editar "{{currentUser.username}}"</h1>
 
-            <form action="/client/edit?userId={{profileClient._id}}" method="post">
+            <form action="/client/edit?id={{currentUser._id}}" method="post">
                 <div class="form-group">
                     <label for="username">Usuario</label>
                     <input name="username" type="text" class="form-control" id="username"
-                        value="{{profileClient.username}}">
+                        value="{{currentUser.username}}">
                 </div>
                 <div class="form-group">
                     <label for="address">Dirección</label>
-                    <input type="text" name="latitude" placeholder="latitude">
-                    <input type="text" name="longitude" placeholder="longitude">
-                    <input name="name" type="text" class="form-control" id="name" value="{{profileClient.name}}">
-                    <input name="contact" type="text" class="form-control" id="contact"
-                        value="{{profileClient.contact}}">
+                    <input name="name" type="text" class="form-control" id="name" value="{{currentUser.name}}">
+                    <input name="contact" type="text" class="form-control" id="contact" value="{{currentUser.contact}}">
                 </div>
 
 

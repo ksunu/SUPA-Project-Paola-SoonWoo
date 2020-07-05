@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+
+            <h1>Editar "{{theProduct.name}}"</h1>
+
+            <form action="/admin/edit?userId={{theProduct._id}}" method="post">
+
+                <div class="form-group">
+                    <label for="category">Categoria</label>
+                    <input name="category" type="text" class="form-control" id="category" value="{{theProductEdit.category}}">
+                </div>
+                <div class="form-group">
+                    <label for="type">Tipo</label>
+                    <input name="type" type="text" class="form-control" id="type" value="{{theProductEdit.type}}">
+                </div>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input name="name" type="text" class="form-control" id="name" value="{{theProductEdit.name}}">
+                </div>
+                <div class="form-group">
+                    <label for="description">Descripción</label>
+                    <input name="description" type="text" class="form-control" id="description" value="{{theProductEdit.description}}">
+                </div>
+                <div class="form-group">
+                    <label for="price">Precio</label>
+                    <input name="price" type="text" class="form-control" id="price" value="{{theProductEdit.price}}">
+                </div>
+                <div class="form-group">
+                    <label for="img">Imagen</label>
+                    <input name="img" type="text" class="form-control" id="img" value="{{theProductEdit.img}}">
+                </div>
+
+
+                <button type="submit" class="btn">Editar</button>
+            </form>
+        </div>
+    </div>
+    <a class="btn" href="/admin/productList">Volver</a>
+</div>

@@ -31,6 +31,8 @@ h3 {
   .color-ul a {
     color: black;
     margin: 0 10px;
+    font-weight: bold;
+    font-size: 1.2em;
   }
 }
 
@@ -78,4 +80,14 @@ h3 {
 
 #myMap {
   height: 300px;
+}
+
+#clientMap {
+  height: 300px;
+}
+
+#imgProduct {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
 }

@@ -1,6 +1,9 @@
 const mongoose = require("mongoose")
 
 const userSchema = new mongoose.Schema({
+    name: {
+        type: String,
+    },
     username: {
         type: String,
         unique: true
@@ -22,20 +25,20 @@ const userSchema = new mongoose.Schema({
         contact: {
             type: Number
         },
-        details: {
-            street: {
-                type: String
-            },
-            number: {
-                type: Number
-            },
-            postal_code: {
-                type: Number
-            },
-            city: {
-                type: String
-            },
-        }
+        // details: {
+        //     street: {
+        //         type: String
+        //     },
+        //     number: {
+        //         type: Number
+        //     },
+        //     postal_code: {
+        //         type: Number
+        //     },
+        //     city: {
+        //         type: String
+        //     },
+        // }
     },
     role: {
         type: String,
