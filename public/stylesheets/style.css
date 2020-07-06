@@ -55,9 +55,8 @@ h3 {
   color: black;
   border: none;
   margin: 5px; }
-
-.btn:hover {
-  background-color: #FFC593; }
+  .btn:hover {
+    background-color: #FFC593; }
 
 #myMap {
   height: 300px; }

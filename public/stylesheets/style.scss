@@ -72,10 +72,10 @@ h3 {
   color: black;
   border: none;
   margin: 5px;
-}
 
-.btn:hover {
-  background-color: #FFC593;
+  &:hover {
+    background-color: #FFC593;
+  }
 }
 
 #myMap {
