@@ -5,6 +5,9 @@ const User = require("../models/user.model")
 const Product = require("../models/product.model")
 const Store = require('../models/store.model')
 
+const bcrypt = require("bcrypt")
+const bcryptSalt = 10
+
 router.get('/profile', (req, res, next) => {
     User
         .find()
@@ -21,10 +24,19 @@ router.get('/edit/:id', (req, res) => {
 router.post('/edit', (req, res, next) => {
     const {
         username,
+        name,
+        avatar,
+        address,
+        contact
     } = req.body
+
     User
         .findByIdAndUpdate(req.query.id, {
             username,
+            name,
+            avatar,
+            address,
+            contact
         }, {
             new: true
         })

@@ -6,13 +6,15 @@ const Product = require("./../models/product.model")
 const bcrypt = require("bcrypt")
 const bcryptSalt = 10
 
+
 // Logged in checker middleware
 const checkAuthenticated = (req, res, next) => req.isAuthenticated() ? next() : res.redirect('/login')
 
 // Role checker middleware
 const checkRole = rolesToCheck => (req, res, next) => req.isAuthenticated() && rolesToCheck.includes(req.user.role) ? next() : res.redirect('/login')
 
-// const checkRoleAdmin = rolesToCheck => (req, res, next) => req.isAuthenticated() && rolesToCheck.includes('ADMIN') ? next('/admin/admin') : res.redirect('/login')
+// Check role ADMIN
+
 
 // Check logged in session
 router.get('/profile', checkAuthenticated, (req, res) => res.render('private/profile', {

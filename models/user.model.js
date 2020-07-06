@@ -40,6 +40,9 @@ const userSchema = new mongoose.Schema({
         //     },
         // }
     },
+    contact: {
+        type: Number
+    },
     role: {
         type: String,
         enum: ['ADMIN', 'CLIENT'],

@@ -3,14 +3,12 @@
     <ul>
         <li>Nombre de Usuario:</li>
         <h3> {{currentUser.username}} </h3>
-        <li>Contraseña</li>
-        <h3> {{currentUser.password}} </h3>
         <li>Nombre:</li>
         <h3> {{currentUser.name}} </h3>
         <li>Dirección:</li>
-        <h3> {{currentUser.address.name}} </h3>
+        <h3> {{currentUser.address}} </h3>
         <li>Contacto:</li>
-        <h3> {{currentUser.address.contact}} </h3>
+        <h3> {{currentUser.contact}} </h3>
     </ul>
     <p></p>
     <a class="btn" href="/client/edit/{{currentUser._id}}">Editar perfil</a>

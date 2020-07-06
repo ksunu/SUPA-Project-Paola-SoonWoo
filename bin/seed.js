@@ -6,6 +6,7 @@ mongoose.connect(`mongodb://localhost/${dbName}`)
 // Model
 const Product = require('../models/product.model')
 const User = require('../models/user.model')
+const Store = require('../models/store.model')
 
 // Data
 
@@ -112,7 +113,7 @@ const products = [{
         name: 'Kiwi',
         description: 'Producto cítrico, pero sabroso y dulce.',
         price: 1.68,
-        img:'https://images.unsplash.com/photo-1554118879-2bdb1885305d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'
+        img: 'https://images.unsplash.com/photo-1554118879-2bdb1885305d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'
     },
     {
         category: 'fruta',
