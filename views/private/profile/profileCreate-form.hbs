@@ -2,11 +2,10 @@
 
     <div class="row">
 
-        <div class="col-md-6">
-            <h1 style="font-weight: 100">Nuevo usuario</h1>
-        </div>
+
 
         <div class="col-md-6">
+            <h1 style="font-weight: 100">Nuevo usuario</h1>
 
             <form action="/admin/newUser" method="post">
                 <div class="form-group">
@@ -18,12 +17,15 @@
                     <input name="role" type="text" class="form-control" id="role">
                 </div>
                 <div class="form-group">
+
                     <label for="password">Contraseña</label>
-                    <input name="password" type="text" class="form-control" id="password">
+                    <input name="password" type="password" class="form-control" id="password">
                 </div>
                 <button type="submit" class="btn">Crear usuario</button>
                 <a href="/admin/profileList" class="btn">Volver</a>
-
+                {{#if errorMsg}}
+                <div id="errorMsg">{{{errorMsg}}}</div>
+                {{/if}}
             </form>
         </div>
     </div>

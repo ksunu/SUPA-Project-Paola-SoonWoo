@@ -56,12 +56,17 @@ router.get('/edit', (req, res) => {
 router.post('/edit', (req, res, next) => {
     const {
         username,
-        role
+        role,
+        password
     } = req.body
+
+    const salt = bcrypt.genSaltSync(bcryptSalt)
+    const hashPass = bcrypt.hashSync(password, salt)
     User
         .findByIdAndUpdate(req.query.userId, {
             username,
-            role
+            role,
+            password: hashPass
         }, {
             new: true
         })
@@ -85,16 +90,39 @@ router.post('/newUser', (req, res, next) => {
         password
     } = req.body
 
+    if (!username || !password) {
+        res.render("private/profile/profileCreate-form", {
+            errorMsg: "Rellena el usuario y la contraseña"
+        })
+        return
+    }
+
     const salt = bcrypt.genSaltSync(bcryptSalt)
     const hashPass = bcrypt.hashSync(password, salt)
 
-    User.create({
-            username,
-            role,
-            password: hashPass
+    User.findOne({
+            username
         })
-        .then(() => res.redirect('/admin/profileList'))
-        .catch(err => next(err))
+        .then(user => {
+            if (user) {
+                res.render("private/profile/profileCreate-form", {
+                    errorMsg: "El usuario ya existe en la BBDD"
+                })
+                return
+            }
+            const salt = bcrypt.genSaltSync(bcryptSalt)
+            const hashPass = bcrypt.hashSync(password, salt)
+
+            User.create({
+                    username,
+                    role,
+                    password: hashPass
+                })
+                .then(() => res.redirect('/admin/profileList'))
+                .catch(() => res.render("admin/profile/profileCreate-form", {
+                    errorMsg: "No se pudo crear el usuario"
+                }))
+        })
 })
 
 // ADMIN DELETE USER
@@ -142,13 +170,11 @@ router.get('/productList', (req, res, next) => {
 })
 
 // ADMIN EDIT PRODUCT
-router.get('/productDetails/:productId', (req, res) => {
+router.get('/productDetails', (req, res) => {
 
     Product
-        .findById(req.params.productId)
-        .then(theProduct => res.render('private/product/productDetails', {
-            theProduct
-        }))
+        .findById(req.query.productId)
+        .then(theProduct => res.render('private/product/productDetails', theProduct))
         .catch(err => netx(err))
 })
 
