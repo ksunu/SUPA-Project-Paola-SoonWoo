@@ -62,6 +62,7 @@ router.post('/edit', (req, res, next) => {
 
     const salt = bcrypt.genSaltSync(bcryptSalt)
     const hashPass = bcrypt.hashSync(password, salt)
+
     User
         .findByIdAndUpdate(req.query.userId, {
             username,
@@ -133,7 +134,7 @@ router.get('/deleteUser', (req, res, next) => {
 })
 
 // ADMIN CREATE PRODUCT
-router.get('/newProduct', (req, res, next) => res.render('private/product/productCreate-form'))
+router.get('/newProduct', (req, res) => res.render('private/product/productCreate-form'))
 
 router.post('/newProduct', (req, res) => {
 
@@ -166,7 +167,7 @@ router.get('/productList', (req, res, next) => {
         .then(allProducts => res.render('private/product/productList', {
             allProducts
         }))
-        .catch(err => netx(err))
+        .catch(err => next(err))
 })
 
 // ADMIN EDIT PRODUCT
@@ -187,28 +188,30 @@ router.get('/editProduct', (req, res) => {
         .catch(err => console.log("Error en la BBDD", err))
 })
 
-// router.post('/editProduct', (req, res, next) => {
-//     const {
-//         category,
-// type,
-// name,
-// description,
-// price,
-// img       
-//     } = req.body
-//     Product
-//         .findByIdAndUpdate(req.query.productId, {
-//          // type,
-// name,
-// description,
-// price,
-// img
-// }, {
-//             new: true
-//         })
-//         .then(() => res.redirect(`/admin/productDetails/${req.query.productId}`))
-//         .catch(err => console.log("Error en la BBDD", err))
-// })
+router.post('/editProduct', (req, res) => {
+    const {
+        category,
+        type,
+        name,
+        description,
+        price,
+        img
+    } = req.body
+
+    Product
+        .findByIdAndUpdate(req.query.productId, {
+            category,
+            type,
+            name,
+            description,
+            price,
+            img
+        }, {
+            new: true
+        })
+        .then(() => res.redirect(`/admin/productDetails/${req.query.productId}`))
+        .catch(err => console.log("Error en la BBDD", err))
+})
 
 
 router.get('/deleteProduct', (req, res, next) => {
@@ -218,4 +221,5 @@ router.get('/deleteProduct', (req, res, next) => {
         .catch(err => next(err))
 })
 
+// MODULE EXPORT
 module.exports = router
