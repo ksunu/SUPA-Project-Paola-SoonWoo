@@ -187,7 +187,6 @@ router.get('/editProduct', (req, res) => {
         }))
         .catch(err => console.log("Error en la BBDD", err))
 })
-
 router.post('/editProduct', (req, res) => {
     const {
         category,
@@ -197,7 +196,6 @@ router.post('/editProduct', (req, res) => {
         price,
         img
     } = req.body
-
     Product
         .findByIdAndUpdate(req.query.productId, {
             category,
