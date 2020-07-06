@@ -20,8 +20,9 @@ h3 {
 
 .navbar {
   margin-bottom: 70px;
-  background-color: #F3EA1A;
-  padding: 0 40px; }
+  background-color: #42DA19;
+  padding: 0 40px;
+  background-image: linear-gradient(#2ec720, #ffffff); }
   .navbar .color-ul a {
     color: black;
     margin: 0 10px;
@@ -41,22 +42,17 @@ h3 {
 #main-page footer {
   background-color: green; }
 
-.logo {
-  font-family: "Yellowtail", sans-serif;
-  font-size: 1.8em;
-  color: #0F3FD4;
-  border: solid #df0303;
-  border-radius: 60px 60px;
-  padding: 0 10px; }
+#logo {
+  width: 100px; }
 
 .btn {
-  background-color: #FF7F11;
+  background-color: #E6091A;
   border-radius: 0;
-  color: black;
+  color: white;
   border: none;
   margin: 5px; }
   .btn:hover {
-    background-color: #FFC593; }
+    background-color: #FAD4D7; }
 
 #myMap {
   height: 300px; }
@@ -65,6 +61,11 @@ h3 {
   height: 300px; }
 
 #imgProduct {
+  width: 150px;
+  height: 150px;
+  object-fit: cover; }
+
+#imgProductAdmin {
   width: 150px;
   height: 150px;
   object-fit: cover; }

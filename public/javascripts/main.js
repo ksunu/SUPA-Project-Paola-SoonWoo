@@ -7,12 +7,18 @@ window.onload = () => {
         lat: 40.392499,
         lng: -3.698214
     };
+    const markers = []
 
     myMap = new google.maps.Map(document.getElementById('myMap'), {
         zoom: 16,
         center: supaStore,
         styles: mapStyles.retro
     });
+
+    let center = {
+        lat: undefined,
+        lng: undefined
+      }; 
 
     const myMarker = new google.maps.Marker({
         position: {
@@ -22,6 +28,14 @@ window.onload = () => {
         map: myMap,
         title: "¡SUPA está aquí!"
     });
+
+
+
+
+
+
+
+
 
     // CLIENT SIDE
     // initMap = () => {
