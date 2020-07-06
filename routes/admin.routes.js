@@ -85,10 +85,13 @@ router.post('/newUser', (req, res, next) => {
         password
     } = req.body
 
+    const salt = bcrypt.genSaltSync(bcryptSalt)
+    const hashPass = bcrypt.hashSync(password, salt)
+
     User.create({
             username,
             role,
-            password
+            password: hashPass
         })
         .then(() => res.redirect('/admin/profileList'))
         .catch(err => next(err))
