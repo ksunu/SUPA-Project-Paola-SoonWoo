@@ -182,11 +182,12 @@ router.get('/productDetails', (req, res) => {
 router.get('/editProduct', (req, res) => {
     Product
         .findById(req.query.productId)
-        .then(theProduct => res.render('private/product/productEdit-form', {
-            theProduct
-        }))
+        .then(theProduct => res.render('private/product/productEdit-form', {theProduct}
+            ))
+            
         .catch(err => console.log("Error en la BBDD", err))
 })
+
 router.post('/editProduct', (req, res) => {
     const {
         category,

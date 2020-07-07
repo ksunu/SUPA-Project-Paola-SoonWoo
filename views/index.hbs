@@ -36,19 +36,24 @@
     </section>
         <footer>
             <!--Facebook-->
-            <a class="fb-ic mr-3" role="button"><i class="fab fa-lg fa-facebook-f"></i></a>
 
             <!--Instagram-->
-            <a class="ins-ic mr-3" role="button"><i class="fab fa-lg fa-instagram"></i></a>
 
             <!--Github-->
-            <a class="git-ic mr-3" role="button"><i class="fab fa-lg fa-github"></i></a>
 
             <!--copy-->
 
             <!--maps-->
+             <div class="directions">
+                    <label for="direccion">Indique su dirección</label>
+                    <input id="address" type="textbox" value="Madrid" />
+                    <input id="submit" type="button" value="Calcule su ruta" />
+                    
+                
+            </div>
 
             <figure id="myMap"></figure>
+
             <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
             <script src="/javascripts/slider-init.js"></script>
 
@@ -56,7 +61,8 @@
 
             <script src="/javascripts/mapStyles.js"> </script>
             <script src="/javascripts/main.js"></script>
-            <script src="https://maps.googleapis.com/maps/api/js?key={{hola}}"></script>
+          
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSDb_bSmfiGm3RAJYWpORpgMKtJUty94U"></script>
         </footer>
 
 </div>
