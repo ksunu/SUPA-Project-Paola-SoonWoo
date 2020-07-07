@@ -41,10 +41,11 @@
             <a class="nav-link" href="/logout">Cerrar sesión</a>
 
           </li>
-
+          {{#if isBoss}}
           <li class="nav-item">
             <a class="nav-link" href="/admin/admin" role="ADMIN">ADMIN</a>
           </li>
+          {{/if}}
           {{else}}
           <li class="nav-item">
             <a class="nav-link" href="/signup">Registro</a>
