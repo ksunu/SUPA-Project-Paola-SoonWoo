@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const multer = require('multer')
+
+const User = require("./../models/user.model")
 const Picture = require('../models/picture.model')
 
 // File upload settings
@@ -9,10 +11,10 @@ const uploadLocal = multer({
 })
 
 
-
-
 // Local upload files routes
-router.get('/upload-local', (req, res, next) => res.render('files/upload-form-local'))
+router.get('/upload-local', (req, res, next) => res.render('files/upload-form-local', {
+    user: req.user
+}))
 
 router.post('/upload-local', uploadLocal.single('imageFile'), (req, res, next) => {
 
@@ -47,6 +49,7 @@ router.post('/upload-cdn', cloudUploader.single('imageFile'), (req, res, next) =
             originalName: req.file.originalname
         })
         .then(() => res.redirect('/gallery'))
+        .then(() => res.redirect('/'))
         .catch(err => next(new Error(err)))
 })
 

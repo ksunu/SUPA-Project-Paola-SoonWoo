@@ -14,7 +14,7 @@ const checkAuthenticated = (req, res, next) => req.isAuthenticated() ? next() : 
 const checkRole = rolesToCheck => (req, res, next) => req.isAuthenticated() && rolesToCheck.includes(req.user.role) ? next() : res.redirect('/login')
 
 // Check role ADMIN
-
+const checkAdmin = adminCheck => (req, res, next) => req.isAuthenticated() && req.user.role === 'ADMIN' ? next() : res.redirect('/login')
 
 // Check logged in session
 router.get('/profile', checkAuthenticated, (req, res) => res.render('private/profile', {

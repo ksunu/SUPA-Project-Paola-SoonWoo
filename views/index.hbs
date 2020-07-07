@@ -1,5 +1,5 @@
 <div class="container">
-    <section id="main-page">
+    <section id="main-page" class="row">
 
         <article>
 
@@ -13,29 +13,50 @@
 
 
     </section>
+    <section class="row">
+        <div class="glide gallery">
+            <div class="glide__track" data-glide-el="track">
+                <ul class="glide__slides">
 
-    <footer>
-        <!--Facebook-->
-        <a class="fb-ic mr-3" role="button"><i class="fab fa-lg fa-facebook-f"></i></a>
+                    {{#each allThePictures}}
 
-        <!--Instagram-->
-        <a class="ins-ic mr-3" role="button"><i class="fab fa-lg fa-instagram"></i></a>
+                    <li class="glide__slide">
+                        <img src="{{path}}" alt="{{name}}" style="width: 100%">
+                    </li>
 
-        <!--Github-->
-        <a class="git-ic mr-3" role="button"><i class="fab fa-lg fa-github"></i></a>
+                    {{/each}}
 
-        <!--copy-->
+                </ul>
+            </div>
+            <div class="glide__arrows" data-glide-el="controls">
+                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
+                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
+            </div>
+        </div>
+    </section>
+        <footer>
+            <!--Facebook-->
+            <a class="fb-ic mr-3" role="button"><i class="fab fa-lg fa-facebook-f"></i></a>
 
-        <!--maps-->
+            <!--Instagram-->
+            <a class="ins-ic mr-3" role="button"><i class="fab fa-lg fa-instagram"></i></a>
 
+            <!--Github-->
+            <a class="git-ic mr-3" role="button"><i class="fab fa-lg fa-github"></i></a>
 
+            <!--copy-->
 
-        <figure id="myMap"></figure>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+            <!--maps-->
 
-        <script src="/javascripts/mapStyles.js"> </script>
-        <script src="/javascripts/main.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key={{hola}}"></script>
-    </footer>
+            <figure id="myMap"></figure>
+            <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+            <script src="/javascripts/slider-init.js"></script>
+
+            <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+            <script src="/javascripts/mapStyles.js"> </script>
+            <script src="/javascripts/main.js"></script>
+            <script src="https://maps.googleapis.com/maps/api/js?key={{hola}}"></script>
+        </footer>
 
 </div>

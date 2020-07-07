@@ -6,6 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
+
+  <!-- GLIDE CAROUSEL CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/@glidejs/glide@3.4.1/dist/css/glide.core.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/@glidejs/glide@3.4.1/dist/css/glide.theme.min.css">
+
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
@@ -34,12 +39,12 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/logout">Cerrar sesión</a>
+
           </li>
 
           <li class="nav-item">
             <a class="nav-link" href="/admin/admin" role="ADMIN">ADMIN</a>
           </li>
-
           {{else}}
           <li class="nav-item">
             <a class="nav-link" href="/signup">Registro</a>
