@@ -1,6 +1,15 @@
 * {
   font-family: 'Yanone Kaffeesatz', sans-serif; }
 
+.btn {
+  background-color: #E6091A;
+  border-radius: 0;
+  color: white;
+  border: none;
+  margin: 5px; }
+  .btn:hover {
+    background-color: #FAD4D7; }
+
 #errorMsg {
   background-color: red;
   color: white;
@@ -29,9 +38,6 @@ h3 {
     font-weight: bold;
     font-size: 1.2em; }
 
-#main-page img {
-  background-size: cover; }
-
 #main-page h1 {
   font-family: "Yellowtail", sans-serif;
   font-size: 4em; }
@@ -39,20 +45,26 @@ h3 {
 #main-page p {
   font-size: 1.4em; }
 
-#main-page footer {
-  background-color: green; }
-
 #logo {
   width: 50px; }
 
-.btn {
-  background-color: #E6091A;
-  border-radius: 0;
-  color: white;
-  border: none;
-  margin: 5px; }
-  .btn:hover {
-    background-color: #FAD4D7; }
+#carousel-bkg {
+  margin: 40px 0; }
+  #carousel-bkg #carouselIndex h2 {
+    font-size: 3em;
+    color: #29D5FF;
+    -webkit-text-stroke: 0.1px black; }
+  #carousel-bkg #carouselIndex p {
+    font-size: 2em;
+    -webkit-text-stroke: 0.1px black; }
+
+footer {
+  background-color: #42DA19;
+  background-image: linear-gradient(#ffffff, #2ec720);
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%; }
 
 #myMap {
   height: 300px; }
@@ -68,9 +80,9 @@ h3 {
 label {
   margin-top: 10px; }
 
-.gallery {
-  margin-top: 80px; }
-  .gallery img {
+.carousel {
+  margin-top: 20px; }
+  .carousel img {
     width: 100%;
     height: 300px;
     object-fit: cover; }

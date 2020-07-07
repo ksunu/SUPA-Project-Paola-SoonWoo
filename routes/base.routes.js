@@ -5,15 +5,8 @@ const Picture = require('../models/picture.model')
 
 router.get('/', (req, res) => res.render('index'))
 
-router.get('/', (req, res, next) => {
 
-    Picture.find()
-        .then(allThePictures => res.render('/', {
-            allThePictures
-        }))
-        .catch(err => next(new Error(err)))
-})
-
+// GALLERY - CLOUDINARY
 router.get('/gallery', (req, res, next) => {
 
     Picture.find()
@@ -21,8 +14,23 @@ router.get('/gallery', (req, res, next) => {
             allThePictures
         }))
         .catch(err => next(new Error(err)))
-
 })
+
+router.get('/galleryIndex', (req, res, next) => {
+
+    Picture.find()
+        .then(allPictures => res.render('index', {
+            allPictures
+        }))
+        .catch(err => next(new Error(err)))
+})
+
+// router.get('/deleteImage', (req, res, next) => {
+//     Picture
+//         .findByIdAndDelete(req.file)
+//         .then(() => res.redirect('/gallery'))
+//         .catch(err => next(err))
+// })
 
 
 module.exports = router

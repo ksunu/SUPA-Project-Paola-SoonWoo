@@ -1,5 +1,18 @@
+// GENERAL
 * {
   font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.btn {
+  background-color: #E6091A;
+  border-radius: 0;
+  color: white;
+  border: none;
+  margin: 5px;
+
+  &:hover {
+    background-color: #FAD4D7;
+  }
 }
 
 #errorMsg {
@@ -23,6 +36,7 @@ h3 {
   font-weight: 200;
 }
 
+// LAYOUT NAV-BAR
 .navbar {
   margin-bottom: 70px;
   padding: 0 40px;
@@ -37,12 +51,8 @@ h3 {
   }
 }
 
-
+// INDEX PAGE
 #main-page {
-  img {
-    background-size: cover;
-  }
-
   h1 {
     font-family: "Yellowtail",
       sans-serif;
@@ -52,26 +62,36 @@ h3 {
   p {
     font-size: 1.4em;
   }
-
-  footer {
-    background-color: green;
-  }
 }
 
 #logo {
   width: 50px;
 }
 
-.btn {
-  background-color: #E6091A;
-  border-radius: 0;
-  color: white;
-  border: none;
-  margin: 5px;
+#carousel-bkg {
+  margin: 40px 0;
 
-  &:hover {
-    background-color: #FAD4D7;
+  #carouselIndex {
+    h2 {
+      font-size: 3em;
+      color: #29D5FF;
+      -webkit-text-stroke: 0.1px black;
+    }
+
+    p {
+      font-size: 2em;
+      -webkit-text-stroke: 0.1px black;
+    }
   }
+}
+
+footer {
+  background-color: #42DA19;
+  background-image: linear-gradient(#ffffff, #2ec720);
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
 }
 
 #myMap {
@@ -82,6 +102,7 @@ h3 {
   height: 300px;
 }
 
+// PRODUCTS
 #imgProduct {
   width: 150px;
   height: 150px;
@@ -92,9 +113,8 @@ label {
   margin-top: 10px;
 }
 
-.gallery {
-
-  margin-top: 80px;
+.carousel {
+  margin-top: 20px;
 
   img {
     width: 100%;

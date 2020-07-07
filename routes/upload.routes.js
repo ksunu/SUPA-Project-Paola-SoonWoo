@@ -12,16 +12,16 @@ const uploadLocal = multer({
 
 
 // Local upload files routes
-router.get('/upload-local', (req, res, next) => res.render('files/upload-form-local', {
+router.get('/upload-local', (req, res, next) => res.render('files/upload-form', {
     user: req.user
 }))
 
 router.post('/upload-local', uploadLocal.single('imageFile'), (req, res, next) => {
 
-    console.log("Multer crea la propiedad 'file' en el objeto req:", req.file)
+    console.log("Archivo local:", req.file)
 
     // Validador
-    req.file.size > 3000000 ? console.log("El tamaño de imagen es tochísimo") : console.log('El tamaño de imagen mola')
+    req.file.size > 3000000 ? console.log("AVISO: ¡El tamaño de la imagen es demasiado grande!") : console.log('OK con el tamaño de imagen')
 
     Picture.create({
             name: req.body.imageName,
@@ -37,7 +37,8 @@ router.post('/upload-local', uploadLocal.single('imageFile'), (req, res, next) =
 
 const cloudUploader = require('../configs/cloudinary.config')
 
-router.get('/upload-cdn', (req, res, next) => res.render('private/files/upload-form-cdn'))
+// GALLERY
+router.get('/upload-cdn', (req, res, next) => res.render('private/files/upload-form'))
 
 router.post('/upload-cdn', cloudUploader.single('imageFile'), (req, res, next) => {
 
@@ -49,10 +50,8 @@ router.post('/upload-cdn', cloudUploader.single('imageFile'), (req, res, next) =
             originalName: req.file.originalname
         })
         .then(() => res.redirect('/gallery'))
-        .then(() => res.redirect('/'))
         .catch(err => next(new Error(err)))
 })
-
 
 /////---EXPORT---//////
 module.exports = router
