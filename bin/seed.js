@@ -1,7 +1,7 @@
 // Database
 const mongoose = require('mongoose')
 const dbName = 'supa-project'
-mongoose.connect(process.env.DB_REMOTE)
+mongoose.connect(process.env.DB_LOCAL)
 
 // Model
 const Product = require('../models/product.model')
