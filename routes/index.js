@@ -6,7 +6,6 @@ module.exports = app => {
     res.locals.isAuthenticated = req.isAuthenticated()
     next()
   })
-  // console.log("aaa", req.user.role)
 
   // currentUser = req.user
   app.use((req, res, next) => {
@@ -14,7 +13,6 @@ module.exports = app => {
     next()
   })
 
-  //AD
 
   // Base URLS
   app.use('/', require('./base.routes'))
