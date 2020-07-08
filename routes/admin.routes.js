@@ -14,8 +14,15 @@ const checkAuthenticated = (req, res, next) => req.isAuthenticated() ? next() : 
 const checkRole = rolesToCheck => (req, res, next) => req.isAuthenticated() && rolesToCheck.includes(req.user.role) ? next() : res.redirect('/login')
 
 // Check role ADMIN
-const checkAdmin = adminCheck => (req, res, next) => req.isAuthenticated() && req.user.role === 'ADMIN' ? next() : res.redirect('/login')
 const isBoss = user => user.role === 'ADMIN'
+router.get('/', (req, res) => {
+    if (req.user) {
+        res.render('index', {
+            isBoss: isBoss(req.user)
+        })
+    }
+    res.render('index')
+})
 
 // Check logged in session
 router.get('/profile', checkAuthenticated, (req, res) => res.render('private/profile', {
@@ -185,9 +192,10 @@ router.get('/productDetails', (req, res) => {
 router.get('/editProduct', (req, res) => {
     Product
         .findById(req.query.productId)
-        .then(theProduct => res.render('private/product/productEdit-form', {theProduct}
-            ))
-            
+        .then(theProduct => res.render('private/product/productEdit-form', {
+            theProduct
+        }))
+
         .catch(err => console.log("Error en la BBDD", err))
 })
 

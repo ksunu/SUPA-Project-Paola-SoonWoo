@@ -19,17 +19,20 @@
 
 <body>
   <div class="menu">
-    <nav class="navbar navbar-expand-lg fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-toggleable-sm fixed-top">
 
       <a class="logo navbar-brand" href="/"><img id="logo" src="/images/supa.png"></a>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto color-ul">
+
+
           <li class="nav-item">
             <a class="nav-link" href="/">Inicio</a>
           </li>
@@ -39,13 +42,12 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/logout">Cerrar sesión</a>
-
           </li>
-          {{#if isBoss}}
+          {{!-- {{#if isBoss}} --}}
           <li class="nav-item">
             <a class="nav-link" href="/admin/admin" role="ADMIN">ADMIN</a>
           </li>
-          {{/if}}
+          {{!-- {{/if}} --}}
           {{else}}
           <li class="nav-item">
             <a class="nav-link" href="/signup">Registro</a>
@@ -54,12 +56,19 @@
             <a class="nav-link" href="/login">Iniciar sesión</a>
           </li>
           {{/if}}
+          {{#if isAuthenticated}}
+          <span class="logged">
+            <img src="https://image.flaticon.com/icons/svg/74/74235.svg"><a href="/client/profile"
+              style="color: blue">{{currentUser.username}}</a>
+          </span>
+          {{/if}}
         </ul>
       </div>
     </nav>
+
   </div>
 
-  <main class="container">
+  <main>
     {{{body}}}
   </main>
 
