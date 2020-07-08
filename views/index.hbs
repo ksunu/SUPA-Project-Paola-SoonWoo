@@ -54,22 +54,6 @@
             </a>
         </div>
     </section>
-    {{!-- <!--Facebook-->
-        <a class="fb-ic mr-3" role="button"><i class="fab fa-lg fa-facebook-f"></i></a>
-
-        <!--Instagram-->
-        <a class="ins-ic mr-3" role="button"><i class="fab fa-lg fa-instagram"></i></a>
-
-        <!--Github-->
-        <a class="git-ic mr-3" role="button"><i class="fab fa-lg fa-github"></i></a>
-
-        <!--copy-->
-
-        <!--maps--> --}}
-
-
-
-<<<<<<< HEAD
 
     <!-- Footer -->
     <section id="footer">
@@ -77,48 +61,28 @@
 
             <!-- Footer Elements -->
             <div class="container">
-=======
-                </ul>
-            </div>
-            <div class="glide__arrows" data-glide-el="controls">
-                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
-                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
-            </div>
-        </div>
-    </section>
-        <footer>
-            <!--Facebook-->
-
-            <!--Instagram-->
-
-            <!--Github-->
->>>>>>> fc45801b34cd4d04d2f0ae05e305490e6e15d94f
 
                 <!--Grid row-->
                 <div class="row d-flex justify-content-center">
 
-<<<<<<< HEAD
                     <!--Grid column-->
                     <div class="col-md-6">
 
                         <!-- Video -->
-=======
-            <!--maps-->
-             <div class="directions">
-                    <label for="direccion">Indique su dirección</label>
-                    <input id="address" type="textbox" value="Madrid" />
-                    <input id="submit" type="button" value="Calcule su ruta" />
-                    
-                
-            </div>
+                        <!--maps-->
 
-            <figure id="myMap"></figure>
+                        {{!-- direccion --}}
+                        <div class="directions">
+                            <label for="direccion">Indique su dirección</label>
+                            <input id="address" type="textbox" value="Madrid" />
+                            <input id="submit" type="button" value="Calcule su ruta" />
 
-            <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
-            <script src="/javascripts/slider-init.js"></script>
->>>>>>> fc45801b34cd4d04d2f0ae05e305490e6e15d94f
+                        </div>
 
                         <figure id="myMap"></figure>
+
+                        <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+                        <script src="/javascripts/slider-init.js"></script>
 
                     </div>
                     <!--Grid column-->
@@ -135,13 +99,6 @@
             </div>
             <!-- Copyright -->
 
-<<<<<<< HEAD
-=======
-            <script src="/javascripts/mapStyles.js"> </script>
-            <script src="/javascripts/main.js"></script>
-          
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSDb_bSmfiGm3RAJYWpORpgMKtJUty94U"></script>
->>>>>>> fc45801b34cd4d04d2f0ae05e305490e6e15d94f
         </footer>
     </section>
 
@@ -159,6 +116,9 @@
 
     <script src="/javascripts/mapStyles.js"> </script>
     <script src="/javascripts/main.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key={{hola}}"></script>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key={{api}}"></script>
 
 </div>

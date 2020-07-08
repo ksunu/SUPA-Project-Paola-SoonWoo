@@ -45,29 +45,4 @@ router.post('/edit', (req, res, next) => {
 })
 
 
-
-
-
-
-
-
-
-
-
-
-// router.get('/api/:id', (req, res, next) => {
-
-//     let storeId = req.params.id
-
-//     Store
-//         .findById(storeId)
-//         .then(oneStore => res.json({
-//             restaurant: oneStore
-//         }))
-//         .catch(err => next(err))
-// })
-
-
-
-
 module.exports = router

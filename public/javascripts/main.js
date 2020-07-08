@@ -28,15 +28,14 @@ window.onload = () => {
         map: myMap,
         title: "¡SUPA está aquí!"
     });
-}
 
 //Geocoder
- 
+
 function geocodeAddress(geocoder, resultsMap) {
   let address = document.getElementById('address').value;
  
   geocoder.geocode({ 'address': address }, function (results, status) {
- 
+
     if (status === 'OK') {
       resultsMap.setCenter(results[0].geometry.location);
       let marker = new google.maps.Marker({
@@ -49,11 +48,12 @@ function geocodeAddress(geocoder, resultsMap) {
   });
 }
 
+//dibujo de polilineas
 let flightPlanCoordinates = [
-    { lat: 37.772, lng: -122.214 },
-    { lat: 21.291, lng: -157.821 },
+    { lat: 40.392499, lng: -3.698214},
 
   ];
+
   let flightPath = new google.maps.Polyline({
     path: flightPlanCoordinates,
     geodesic: true,
@@ -64,34 +64,20 @@ let flightPlanCoordinates = [
 
   flightPath.setMap(myMap);
 
+//informacion de un sitio
+
+const ClickEventHandler = function() {
+
+    this.infowindow = new google.maps.InfoWindow();
+    this.infowindowContent = document.getElementById();
+   
+  };
 
 
+  
+  ClickEventHandler.prototype.handleClick = function(event) {
+    console.log("You clicked on: " + event.latLng);
+    
+  };
 
-
-
-
-
-
-
-//DirectionService
-
-// const directionsService = new google.maps.DirectionsService;
-// const directionsDisplay = new google.maps.DirectionsRenderer;
-
-// const directionRequest = {
-//     origin: { lat: 41.3977381, lng: 2.190471916},
-//     destination: document.getElementById('address').value,
-//     travelMode: 'DRIVING'
-//   };
-
-// directionsService.route(
-//     directionRequest,
-//     (response, status) => {
-//         console.log('El estado de la petición a directonsSevice ha sido:', status)
-//         console.log('La respuesta del directonsSevice ha sido:', response)
-
-//         const directionsDisplay = new google.maps.DirectionsRenderer
-//         directionsDisplay.setDirections(response)
-//         directionsDisplay.setMap(myMap)
-//     }
-// )
+}
