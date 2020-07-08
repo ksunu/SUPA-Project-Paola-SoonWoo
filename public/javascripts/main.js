@@ -28,8 +28,32 @@ window.onload = () => {
         map: myMap,
         title: "¡SUPA está aquí!"
     });
+    //directionService 
+
+    const directionRequest = {
+      origin: document.getElementById('address').value,
+      destination: supaStore,
+      travelMode: 'DRIVING',
+  }
+
+  const directionsService = new google.maps.DirectionsService
+
+  directionsService.route(
+      directionRequest,
+      (response, status) => {
+          console.log('El estado de la petición a directonsSevice ha sido:', status)
+          console.log('La respuesta del directonsSevice ha sido:', response)
+
+          const directionsDisplay = new google.maps.DirectionsRenderer
+          directionsDisplay.setDirections(response)
+          directionsDisplay.setMap(myMap)
+      }
+  )
+ }
 
 //Geocoder
+
+
 
 function geocodeAddress(geocoder, resultsMap) {
   let address = document.getElementById('address').value;
@@ -49,20 +73,20 @@ function geocodeAddress(geocoder, resultsMap) {
 }
 
 //dibujo de polilineas
-let flightPlanCoordinates = [
-    { lat: 40.392499, lng: -3.698214},
+//  let flightPlanCoordinates = [{
+//   lat: 40.392499,
+//   lng: -3.698214
+// }]
 
-  ];
+  // let flightPath = new google.maps.Polyline({
+  //   path: supaStore.resultsMap,
+  //   geodesic: true,
+  //   strokeColor: "#FF0000",
+  //   strokeOpacity: 1.0,
+  //   strokeWeight: 2
+  // });
 
-  let flightPath = new google.maps.Polyline({
-    path: flightPlanCoordinates,
-    geodesic: true,
-    strokeColor: "#FF0000",
-    strokeOpacity: 1.0,
-    strokeWeight: 2
-  });
-
-  flightPath.setMap(myMap);
+  // flightPath.setMap(myMap);
 
 //informacion de un sitio
 
@@ -72,12 +96,8 @@ const ClickEventHandler = function() {
     this.infowindowContent = document.getElementById();
    
   };
-
-
-  
   ClickEventHandler.prototype.handleClick = function(event) {
     console.log("You clicked on: " + event.latLng);
     
   };
 
-}
