@@ -28,7 +28,7 @@ h3 {
   font-weight: 200; }
 
 .navbar {
-  margin-bottom: 70px;
+  margin-bottom: 30px;
   padding: 0 40px;
   background-color: #42DA19;
   background-image: linear-gradient(#2ec720, #ffffff); }
@@ -37,6 +37,14 @@ h3 {
     margin: 0 10px;
     font-weight: bold;
     font-size: 1.2em; }
+
+.logged {
+  font-size: 0.8em;
+  margin: 8px 0 0 30px; }
+  .logged img {
+    width: 18px; }
+  .logged a {
+    text-decoration: none; }
 
 #main-page h1 {
   font-family: "Yellowtail", sans-serif;
@@ -49,12 +57,15 @@ h3 {
   width: 50px; }
 
 #carousel-bkg {
-  margin: 40px 0; }
-  #carousel-bkg #carouselIndex h2 {
+  margin: 40px auto; }
+  #carousel-bkg #carouselIndex .carousel-inner img {
+    height: 500px;
+    width: 100%; }
+  #carousel-bkg #carouselIndex .carousel-inner h2 {
     font-size: 3em;
     color: #29D5FF;
     -webkit-text-stroke: 0.1px black; }
-  #carousel-bkg #carouselIndex p {
+  #carousel-bkg #carouselIndex .carousel-inner p {
     font-size: 2em;
     -webkit-text-stroke: 0.1px black; }
 
