@@ -2,6 +2,18 @@ const express = require('express')
 const router = express.Router()
 
 const Picture = require('../models/picture.model')
+const User = require('../models/user.model')
+
+// Check role ADMIN
+const isBoss = user => user.role === 'ADMIN'
+router.get('/', (req, res) => {
+    if (req.user) {
+        res.render('index', {
+            isBoss: isBoss(req.user)
+        })
+    }
+    res.render('index')
+})
 
 router.get('/', (req, res) => res.render('index'))
 

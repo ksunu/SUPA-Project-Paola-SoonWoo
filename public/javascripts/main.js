@@ -2,55 +2,59 @@ let myMap
 
 window.onload = () => {
 
-    // SUPA index
-    const supaStore = {
-        lat: 40.392499,
-        lng: -3.698214
-    };
+  // SUPA index
+  const supaStore = {
+    lat: 40.392499,
+    lng: -3.698214
+  };
 
-    myMap = new google.maps.Map(document.getElementById('myMap'), {
-        zoom: 13,
-        center: supaStore,
-        styles: mapStyles.retro
-    });
-
-    const geocoder = new google.maps.Geocoder();
-    document.getElementById('submit').addEventListener('click', function () {
-        geocodeAddress(geocoder, myMap);
-      });
-
-
-    const myMarker = new google.maps.Marker({
-        position: {
-            lat: 40.392499,
-            lng: -3.698214
-        },
-        map: myMap,
-        title: "¡SUPA está aquí!"
-    });
-
-//Geocoder
-
-function geocodeAddress(geocoder, resultsMap) {
-  let address = document.getElementById('address').value;
- 
-  geocoder.geocode({ 'address': address }, function (results, status) {
-
-    if (status === 'OK') {
-      resultsMap.setCenter(results[0].geometry.location);
-      let marker = new google.maps.Marker({
-        map: resultsMap,
-        position: results[0].geometry.location
-      });
-    } else {
-      alert('Geocode was not successful for the following reason: ' + status);
-    }
+  myMap = new google.maps.Map(document.getElementById('myMap'), {
+    zoom: 13,
+    center: supaStore,
+    styles: mapStyles.retro
   });
-}
 
-//dibujo de polilineas
-let flightPlanCoordinates = [
-    { lat: 40.392499, lng: -3.698214},
+  const geocoder = new google.maps.Geocoder();
+  document.getElementById('submit').addEventListener('click', function () {
+    geocodeAddress(geocoder, myMap);
+  });
+
+
+  const myMarker = new google.maps.Marker({
+    position: {
+      lat: 40.392499,
+      lng: -3.698214
+    },
+    map: myMap,
+    title: "¡SUPA está aquí!"
+  });
+
+  //Geocoder
+
+  function geocodeAddress(geocoder, resultsMap) {
+    let address = document.getElementById('address').value;
+
+    geocoder.geocode({
+      'address': address
+    }, function (results, status) {
+
+      if (status === 'OK') {
+        resultsMap.setCenter(results[0].geometry.location);
+        let marker = new google.maps.Marker({
+          map: resultsMap,
+          position: results[0].geometry.location
+        });
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
+  }
+
+  //dibujo de polilineas
+  let flightPlanCoordinates = [{
+      lat: 40.392499,
+      lng: -3.698214
+    },
 
   ];
 
@@ -64,20 +68,20 @@ let flightPlanCoordinates = [
 
   flightPath.setMap(myMap);
 
-//informacion de un sitio
+  //informacion de un sitio
 
-const ClickEventHandler = function() {
+  const ClickEventHandler = function () {
 
     this.infowindow = new google.maps.InfoWindow();
     this.infowindowContent = document.getElementById();
-   
+
   };
 
 
-  
-  ClickEventHandler.prototype.handleClick = function(event) {
+
+  ClickEventHandler.prototype.handleClick = function (event) {
     console.log("You clicked on: " + event.latLng);
-    
+
   };
 
 }

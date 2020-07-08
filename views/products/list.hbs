@@ -1,18 +1,20 @@
 <div class="container">
     <h1>Listado de productos</h1>
-    <section class="row">
-
-            {{#each allProducts}}
-        <span class="col-3">
-            <p>{{name}}
-                <br>
-                <img id="imgProduct" src="{{img}}" alt="product image">
-                <a class="btn" href="/products/details/{{_id}}">detalles</a>
-            </p>
-
-
-        </span>
-            {{/each}}
-
-    </section>
+    <div class="row">
+        {{#each allProducts}}
+        <div class="col-md-3 col-sm-6">
+            <div class="product-grid3">
+                <div class="product-image3">
+                    <a href="/products/details/{{_id}}">
+                        <img id="imgProduct" src="{{img}}" alt="imagen de {{name}}">
+                    </a>
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="/products/details/{{_id}}">{{name}}</a></h3>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
 </div>
+<hr>

@@ -1,26 +1,35 @@
-<div class="row justify-content-center">
-    <div class="col-md-6">
+<section class="container">
 
-        <h1>¡Regístrate!</h1>
+    <article class="row justify-content-center">
+        <div id="signup-form">
+            <form action="/signup" method="post">
+                <h1>¡Regístrate!</h1>
+                <p>¡Rellene los campos para crear una cuenta!</p>
+                <hr>
+                <div class="form-group">
+                    <label for="username"></label>
+                    <input name="username" type="text" class="form-control" id="username"
+                        placeholder="Nombre de ususario">
+                </div>
+                <div class="form-group">
+                    <label for="password"></label>
+                    <input name="password" type="password" class="form-control" id="password" placeholder="Contraseña">
+                </div>
 
-        <form action="/signup" method="POST">
-            <div class="form-group">
-                <label for="username">Nombre de usuario</label>
-                <input name="username" type="text" class="form-control" id="username">
-            </div>
-            <div class="form-group">
-                <label for="password">Contraseña</label>
-                <input name="password" type="password" class="form-control" id="password">
-                <small class="form-text text-muted">Nunca compartas tu contraseña</small>
-            </div>
+                {{#if errorMsg}}
+                <div id="errorMsg">{{{errorMsg}}}</div>
+                {{/if}}
+                <div class="form-group">
+                    <label class="checkbox-inline"><input type="checkbox" required="required"> Acepto los <a
+                            href="#">Condiciones de uso
+                        </a> &amp; <a href="#">Privacidad</a></label>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-lg">Registrar</button>
+                </div>
+                <div>¿Ya tienes cuenta? <a href="#">Inicie sesión</a></div>
+            </form>
 
-            <button type="submit" class="btn btn-lg">Registrarme</button>
-
-            {{#if errorMsg}}
-            <div id="errorMsg">{{{errorMsg}}}</div>
-            {{/if}}
-        </form>
-        <br>
-        <p>¿Tienes cuenta?   <a href="/login">Inicia sesión</a></p>
-    </div>
-</div>
+        </div>
+    </article>
+</section>

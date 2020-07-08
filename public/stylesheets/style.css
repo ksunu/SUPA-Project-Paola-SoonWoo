@@ -1,23 +1,6 @@
 * {
   font-family: 'Yanone Kaffeesatz', sans-serif; }
 
-.btn {
-  background-color: #E6091A;
-  border-radius: 0;
-  color: white;
-  border: none;
-  margin: 5px; }
-  .btn:hover {
-    background-color: #FAD4D7; }
-
-#errorMsg {
-  background-color: red;
-  color: white;
-  font-weight: 400;
-  text-align: center;
-  padding: 10px 0;
-  margin-top: 5px; }
-
 body {
   font-weight: 200;
   margin-top: 100px; }
@@ -26,6 +9,22 @@ h1,
 h2,
 h3 {
   font-weight: 200; }
+
+#errorMsg {
+  color: red;
+  font-weight: 400;
+  text-align: center;
+  padding: 10px auto;
+  margin-top: 5px; }
+
+.btn {
+  background-color: #E6091A;
+  border-radius: 0;
+  color: white;
+  border: none;
+  margin: 5px; }
+  .btn:hover {
+    background-color: #FAD4D7; }
 
 .navbar {
   margin-bottom: 30px;
@@ -46,6 +45,17 @@ h3 {
   .logged a {
     text-decoration: none; }
 
+#admin-btn {
+  right: 0;
+  margin: auto 30px;
+  position: fixed;
+  text-align: right;
+  text-decoration: none;
+  color: green;
+  z-index: 999; }
+  #admin-btn img {
+    height: 35px; }
+
 #main-page h1 {
   font-family: "Yellowtail", sans-serif;
   font-size: 4em; }
@@ -53,11 +63,23 @@ h3 {
 #main-page p {
   font-size: 1.4em; }
 
+#main-page i {
+  color: grey; }
+
 #logo {
   width: 50px; }
 
 #carousel-bkg {
-  margin: 40px auto; }
+  margin: 40px auto;
+  opacity: 0.8; }
+  #carousel-bkg:hover {
+    opacity: 1; }
+  #carousel-bkg .carousel {
+    margin-top: 20px; }
+    #carousel-bkg .carousel img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover; }
   #carousel-bkg #carouselIndex .carousel-inner img {
     height: 500px;
     width: 100%; }
@@ -89,11 +111,43 @@ footer {
 label {
   margin-top: 10px; }
 
-.carousel {
-  margin-top: 20px; }
-  .carousel img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover; }
+#admin-page {
+  display: inline-flex; }
+  #admin-page li {
+    list-style: none;
+    margin: 25px;
+    border: 1px solid #c9c9c9;
+    border-radius: 10% 10%;
+    display: inline;
+    padding-bottom: 10px; }
+    #admin-page li .btn {
+      width: 200px; }
+    #admin-page li:hover {
+      opacity: 0.6; }
+    #admin-page li img {
+      max-width: 200px;
+      padding: 10px; }
+
+#profile-page img {
+  width: 200px;
+  height: 200px; }
+
+#profile-page ul {
+  list-style: none; }
+  #profile-page ul li {
+    margin: 30px; }
+    #profile-page ul li h3 {
+      color: green; }
+
+#signup-form {
+  border: 1px solid lightgrey;
+  border-color: lightgrey;
+  border-radius: 6px;
+  padding: 20px 0 auto;
+  width: 400px;
+  color: #7e7d7d; }
+  #signup-form form {
+    margin: auto;
+    padding: 50px; }
 
 /*# sourceMappingURL=style.css.map */

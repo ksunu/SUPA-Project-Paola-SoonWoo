@@ -43,11 +43,6 @@
           <li class="nav-item">
             <a class="nav-link" href="/logout">Cerrar sesión</a>
           </li>
-          {{!-- {{#if isBoss}} --}}
-          <li class="nav-item">
-            <a class="nav-link" href="/admin/admin" role="ADMIN">ADMIN</a>
-          </li>
-          {{!-- {{/if}} --}}
           {{else}}
           <li class="nav-item">
             <a class="nav-link" href="/signup">Registro</a>
@@ -56,6 +51,7 @@
             <a class="nav-link" href="/login">Iniciar sesión</a>
           </li>
           {{/if}}
+
           {{#if isAuthenticated}}
           <span class="logged">
             <img src="https://image.flaticon.com/icons/svg/74/74235.svg"><a href="/client/profile"
@@ -69,6 +65,13 @@
   </div>
 
   <main>
+    {{#if isBoss}}
+    <a id="admin-btn" href="/admin/admin" role="ADMIN">
+      <image
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Open_Access_logo_PLoS_transparent.svg/110px-Open_Access_logo_PLoS_transparent.svg.png"
+        alt="Acceso Administrador"> Admin
+    </a>
+    {{/if}}
     {{{body}}}
   </main>
 

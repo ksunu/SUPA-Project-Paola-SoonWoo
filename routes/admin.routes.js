@@ -13,17 +13,6 @@ const checkAuthenticated = (req, res, next) => req.isAuthenticated() ? next() : 
 // Role checker middleware
 const checkRole = rolesToCheck => (req, res, next) => req.isAuthenticated() && rolesToCheck.includes(req.user.role) ? next() : res.redirect('/login')
 
-// Check role ADMIN
-const isBoss = user => user.role === 'ADMIN'
-router.get('/', (req, res) => {
-    if (req.user) {
-        res.render('index', {
-            isBoss: isBoss(req.user)
-        })
-    }
-    res.render('index')
-})
-
 // Check logged in session
 router.get('/profile', checkAuthenticated, (req, res) => res.render('private/profile', {
     user: req.user
@@ -36,11 +25,9 @@ router.get('/admin', checkRole(['ADMIN']), (req, res, next) => {
 // -------------USERNAME-------------
 // ADMIN Check logged in session & roles 
 router.get('/profileList', checkRole(['ADMIN']), (req, res, next) => {
-    console.log(req.user.role)
     User.find()
         .then(allUsers => res.render('private/profile/profiles', {
             allUsers,
-            isBoss: isBoss(req.user)
         }))
         .catch(err => console.log("DDBB Error", err))
 })

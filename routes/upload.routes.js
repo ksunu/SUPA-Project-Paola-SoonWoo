@@ -12,7 +12,7 @@ const uploadLocal = multer({
 
 
 // Local upload files routes
-router.get('/upload-local', (req, res, next) => res.render('files/upload-form', {
+router.get('/upload-local', (req, res, next) => res.render('private/files/upload-form', {
     user: req.user
 }))
 
@@ -21,7 +21,7 @@ router.post('/upload-local', uploadLocal.single('imageFile'), (req, res, next) =
     console.log("Archivo local:", req.file)
 
     // Validador
-    req.file.size > 3000000 ? console.log("AVISO: ¡El tamaño de la imagen es demasiado grande!") : console.log('OK con el tamaño de imagen')
+    req.file.size < 3000000 ? next() : console.log('La imagen es demasiado grande')
 
     Picture.create({
             name: req.body.imageName,
@@ -52,6 +52,29 @@ router.post('/upload-cdn', cloudUploader.single('imageFile'), (req, res, next) =
         .then(() => res.redirect('/gallery'))
         .catch(err => next(new Error(err)))
 })
+
+
+// Subida de archivos al servidor para el avatar
+router.get('/upload-avatar', (req, res, next) => res.render('clients/edit-form', {
+    user: req.user
+}))
+
+router.post('/upload-avatar', uploadLocal.single('imageFile'), (req, res, next) => {
+
+    console.log("Archivo local:", req.file)
+
+    // Validador
+    req.file.size < 3000000 ? next() : console.log('La imagen es demasiado grande')
+
+    Picture.create({
+            name: req.body.imageName,
+            path: `/uploads/${req.file.filename}`,
+            originalName: req.file.originalname
+        })
+        .then(() => res.redirect('/client/profile'))
+        .catch(err => next(new Error(err)))
+})
+
 
 /////---EXPORT---//////
 module.exports = router
