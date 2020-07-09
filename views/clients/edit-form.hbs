@@ -9,8 +9,6 @@
                     <label for="username">Usuario</label>
                     <input name="username" type="text" class="form-control" id="username"
                         value="{{currentUser.username}}">
-                    <label for="password">Modificar contraseña</label>
-                    <button>Nueva contraseña</button><br>
                     <label for="name">Nombre</label>
                     <input name="name" type="text" class="form-control" id="name" value="{{currentUser.name}}">
                     <label for="address">Dirección</label>
@@ -25,3 +23,47 @@
         </div>
     </div>
 </div>
+
+
+<section class="container">
+    <h1>Tu Perfil</h1>
+    <hr>
+    <article class="row">
+        <div class="col-3">
+            <img src="" alt="Sube la foto de tu perfil">
+            <span class="row col-3">
+                <h2>Subir imagen</h2>
+                <form action="/files/upload-avatar" method="post" enctype="multipart/form-data">
+                    <input type="text" name="imageName" placeholder="Nombre de imagen"><br><br>
+                    <input type="file" name="imageFile"><br><br>
+                    <input type="submit" value="Subir">
+                </form>
+            </span>
+        </div>
+        <div class="col-6" id="signup-form">
+            <form action="/login" method="post">
+                <h1>¡Inicia sesión!</h1>
+                <p>¡Rellene los campos para acceder!</p>
+                <div class="form-group">
+                    <label for="username"></label>
+                    <input name="username" type="text" class="form-control" id="username"
+                        placeholder="Nombre de ususario">
+                </div>
+                <div class="form-group">
+                    <label for="password"></label>
+                    <input name="password" type="password" class="form-control" id="password" placeholder="Contraseña">
+                </div>
+
+                {{#if errorMsg}}
+                <div id="errorMsg">{{{errorMsg}}}</div>
+                {{/if}}
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-lg">Iniciar sesión</button>
+                </div>
+                <div>¿No tienes cuenta? <a href="/signup">Regístrate</a></div>
+            </form>
+
+        </div>
+    </article>
+</section>

@@ -22,4 +22,5 @@ module.exports = app => {
   app.use('/admin', require('./admin.routes'))
   app.use('/client', require('./client.routes'))
   app.use('/files', require('./upload.routes'))
+  
 }

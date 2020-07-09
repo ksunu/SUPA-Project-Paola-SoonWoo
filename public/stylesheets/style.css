@@ -149,5 +149,7 @@ label {
   #signup-form form {
     margin: auto;
     padding: 50px; }
+  #signup-form input {
+    border-radius: 30px; }
 
 /*# sourceMappingURL=style.css.map */

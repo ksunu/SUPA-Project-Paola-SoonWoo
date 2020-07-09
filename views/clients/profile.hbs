@@ -1,61 +1,35 @@
 <section class="container" id="profile-page">
-    <article class="row">
-
-        <img src="https://img.icons8.com/cotton/64/000000/private-lock.png" alt="profile">
+    <article class="row d-flex justify-content-between">
         <h1>Tu Perfil</h1>
+        <a class="btn" href="/client/edit/{{currentUser._id}}">Editar perfil</a>
     </article>
-    <ul>
-        <li>Nombre de Usuario:
-            <h3> {{currentUser.username}} </h3>
-        <li>Nombre:
-            <h3> {{currentUser.name}} </h3>
-        <li>Dirección:
-            <h3> {{currentUser.address}} </h3>
-        <li>Contacto:
-            <h3> {{currentUser.contact}} </h3>
-    </ul>
-    <p></p>
-    <a class="btn" href="/client/edit/{{currentUser._id}}">Editar perfil</a>
-
-</section>
-
-<section class="container">
-    <h1>Tu Perfil</h1>
     <hr>
     <article class="row">
         <div class="col-3">
-            <img src="" alt="Sube la foto de tu perfil">
-            <span class="row col-3">
-                <form action="/files/upload-cdn" method="post" enctype="multipart/form-data">
-                    <input type="text" name="imageName" placeholder="Nombre de imagen"><br><br>
-                    <input type="file" name="imageFile"><br><br>
-                    <input type="submit" value="Subir">
-                </form>
-            </span>
+            <img src="" alt="Foto de perfil">
         </div>
         <div class="col-6" id="signup-form">
-            <form action="/login" method="post">
-                <h1>¡Inicia sesión!</h1>
-                <p>¡Rellene los campos para acceder!</p>
-                <div class="form-group">
-                    <label for="username"></label>
-                    <input name="username" type="text" class="form-control" id="username"
-                        placeholder="Nombre de ususario">
-                </div>
-                <div class="form-group">
-                    <label for="password"></label>
-                    <input name="password" type="password" class="form-control" id="password" placeholder="Contraseña">
-                </div>
+            <ul>
+                <li>
+                    <h1>Información</h1>
+                    <p>Esto son los datos de tu perfil:</p>
+                <li>
+                    <h4>Usuario:</h4>
+                    <h3> {{currentUser.username}} </h3>
+                <li>
+                    <h4>Nombre del usuario:</h4>
+                    <h3> {{currentUser.name}} </h3>
 
-                {{#if errorMsg}}
-                <div id="errorMsg">{{{errorMsg}}}</div>
-                {{/if}}
+                <li>
+                    <h4>Dirección:</h4>
+                    <h3> {{currentUser.address}} </h3>
 
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-lg">Iniciar sesión</button>
-                </div>
-                <div>¿No tienes cuenta? <a href="/signup">Regístrate</a></div>
-            </form>
+                <li>
+                    <h4>Contacto:</h4>
+                    <h3> {{currentUser.contact}} </h3>
+
+
+            </ul>
 
         </div>
     </article>

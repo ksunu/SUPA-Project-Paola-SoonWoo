@@ -37,12 +37,9 @@ router.get('/galleryIndex', (req, res, next) => {
         .catch(err => next(new Error(err)))
 })
 
-// router.get('/deleteImage', (req, res, next) => {
-//     Picture
-//         .findByIdAndDelete(req.file)
-//         .then(() => res.redirect('/gallery'))
-//         .catch(err => next(err))
-// })
+router.delete('/deleteImage', (req, res, next) => {
+    res.json(req.body)
+})
 
 
 module.exports = router

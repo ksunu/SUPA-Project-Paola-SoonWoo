@@ -12,13 +12,13 @@ router.get('/profile', (req, res, next) => {
     User
         .find()
         .then(() => res.render('clients/profile'))
-        .catch(err => console.log("Error en la BBDD", err))
+        .catch(err => next(err))
 })
 
 router.get('/edit/:id', (req, res) => {
     User.findById(req.query.id)
         .then(() => res.render('clients/edit-form'))
-        .catch(err => console.log("Error en la BBDD", err))
+        .catch(err => next(err))
 })
 
 router.post('/edit', (req, res, next) => {
@@ -41,7 +41,7 @@ router.post('/edit', (req, res, next) => {
             new: true
         })
         .then(() => res.redirect(`/client/profile`))
-        .catch(err => console.log("Error en la BBDD", err))
+        .catch(err => next(err))
 })
 
 

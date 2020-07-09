@@ -10,17 +10,11 @@
     <section class="row">
 
         {{#each allProducts}}
-        <span class="col-3">
-            <p>{{name}}
-                <br>
-                <img id="imgProduct" src="{{img}}" alt="product image">
-                <a class="btn btn-sm" href="/admin/productDetails?productId={{_id}}">detalles</a>
-                <a class="btn btn-sm" href="/admin/deleteProduct?id={{_id}}">eliminar</a>
-                <a class="btn btn-sm" href="/admin/editProduct?productId={{_id}}">editar</a>
-            </p>
-
-
-        </span>
+        <div class="col-md-3 col-sm-6">
+            {{>productList}}
+            <a class="btn btn-sm" href="/admin/deleteProduct?id={{_id}}">eliminar</a>
+            <a class="btn btn-sm" href="/admin/editProduct?productId={{_id}}">editar</a>
+        </div>
         {{/each}}
 
     </section>

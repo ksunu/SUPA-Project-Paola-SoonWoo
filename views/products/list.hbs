@@ -3,18 +3,8 @@
     <div class="row">
         {{#each allProducts}}
         <div class="col-md-3 col-sm-6">
-            <div class="product-grid3">
-                <div class="product-image3">
-                    <a href="/products/details/{{_id}}">
-                        <img id="imgProduct" src="{{img}}" alt="imagen de {{name}}">
-                    </a>
-                </div>
-                <div class="product-content">
-                    <h3 class="title"><a href="/products/details/{{_id}}">{{name}}</a></h3>
-                </div>
-            </div>
+            {{>productList}}
         </div>
         {{/each}}
     </div>
 </div>
-<hr>
