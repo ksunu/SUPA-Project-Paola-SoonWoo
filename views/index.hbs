@@ -1,37 +1,5 @@
 <div class="container">
-    <section id="main-page" class="row">
-
-        <article>
-
-            <h1>{{title}}</h1>
-
-            <p>¡Bienvenidos al mejor Supermercado de frutas y verduras!</p>
-            <br>
-            <a class="btn btn-lg" href="/products/list">Ver productos</a>
-        </article>
-        <article>
-            <i>"Lorem ipsum dolor sit amet consectetur adipiscing elit vitae etiam natoque, sodales curae feugiat porta
-                ante
-                hendrerit
-                massa lacinia nibh pulvinar sapien, ut ultrices vulputate nascetur scelerisque ligula velit cubilia
-                nisl.
-                Phasellus
-                ligula nibh vivamus nisi nam curae justo, dignissim lobortis eu quam conubia congue interdum malesuada,
-                metus
-                tristique
-                eleifend sed taciti venenatis. Placerat vulputate odio faucibus fermentum praesent rutrum purus turpis
-                condimentum, hac
-                vitae lacinia sociis urna potenti lobortis donec, vehicula ullamcorper aenean sociosqu netus mollis
-                nascetur
-                vivamus."</i>
-        </article>
-    </section>
 </div>
-<<<<<<< HEAD
-<div class="container"></div>
-=======
-
->>>>>>> sunu
 <section id="carousel-bkg">
     <div id="carouselIndex" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -41,24 +9,23 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="./images/main/photo-1560761098-21f5722ecb14.jpeg" alt="First slide">
+                <img class="d-block w-100" src="./images/frutasvege.jpeg" alt="First slide">
                 <div class="carousel-caption d-none d-md-block">
-                    <h2>Supa Bio</h2>
-                    <p style="color: #1EC500">Descubre nuestros productos ecológicos</p>
+                    <h2>{{title}}</h2>
+                    <p style="color: black ">Descubre nuestros productos ecológicos</p>
+                    <a class="carru btn btn-lg" href="/products/list">Ver productos</a>
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="./images/main/photo-1519996529931-28324d5a630e.jpeg" alt="Second slide">
+                <img class="d-block w-100" src="./images/vegetales.jpeg" alt="Second slide">
                 <div class="carousel-caption d-none d-md-block">
-                    <h2>Supa Quality</h2>
-                    <p style="color: #C8F304">Prueba la frescura de nuestros productos</p>
+                    <a class="btn btn-lg" href="/products/list">Ver productos</a>
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="./images/main/photo-1535202610320-919f9b13de77.jpeg" alt="Third slide">
+                <img class="d-block w-100" src="./images/frutas.jpeg" alt="Third slide">
                 <div class="carousel-caption d-none d-md-block">
-                    <h2>Supa Eco</h2>
-                    <p style="color: #FF2618">En Supa, siempre pensamos en el medio ambiente.</p>
+                    <a class="btn btn-lg" href="/products/list">Ver productos</a>
                 </div>
             </div>
         </div>
@@ -73,62 +40,35 @@
     </div>
 </section>
 
-<div class="container">
-<<<<<<< HEAD
-<section id="footer">
-    <footer class="page-footer font-small">
-        
-        <div class="container">
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-6">
-                    <div class="directions">
-                        <label for="direccion">Indique su dirección</label>
-                        <input id="address" type="textbox" value="" />
-                        <input id="submit" type="button" value="Calcule su ruta" />
+<div class="container ">
+    <section id="footer" class="row d-flex justify-content-center">
+        <footer class="page-footer font-small">
+            <div class="col-md-6">
 
-                    </div>
-                    </div>
-                    <div>
+                <input id="origin-input" class="controls" type="text" placeholder="Origen">
+                <input id="destination-input" class="controls" type="text" placeholder="Destino">
+
+                <div id="mode-selector" class="controls">
+                    <input type="radio" name="type" id="changemode-walking" checked="checked">
+                    <label for="changemode-walking">Walking</label>
+                    <input type="radio" name="type" id="changemode-transit">
+                    <label for="changemode-transit">Transit</label>
+                    <input type="radio" name="type" id="changemode-driving">
+                    <label for="changemode-driving">Driving</label>
+                </div>
 
                 <figure id="myMap"></figure>
 
-                </div>
-            </div>
-            </div>
-
-        <div class="footer-copyright text-center py-3">© 2020 Copyright:
-            <a href="/"> Paola & SoonWoo</a>
-
-        </div>
-    </footer>
-</section>
-</div>
-=======
-
-    <section id="footer">
-        <footer class="page-footer font-small">
-            <div class="row">
-                <div class="row d-flex justify-content-center">
-                    <div class="col-md-6">
-                        <div class="directions">
-                            <label for="direccion">Indique su dirección</label>
-                            <input id="address" type="textbox" value="Madrid" />
-                            <input id="submit" type="button" value="Calcule su ruta" />
-                        </div>
-
-                        <figure id="myMap"></figure>
-                    </div>
-                </div>
             </div>
 
             <div class="footer-copyright text-center py-3">© 2020 Copyright:
                 <a href="/"> Paola & SoonWoo</a>
+
             </div>
         </footer>
     </section>
 </div>
 
->>>>>>> sunu
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -143,8 +83,6 @@
 
 <script src="/javascripts/mapStyles.js"> </script>
 <script src="/javascripts/main.js"></script>
-<<<<<<< HEAD
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyL_iQJ2HGYD239r1RdqeFs2N3XcClICc&libraries=places"></script>
-=======
-<script src="https://maps.googleapis.com/maps/api/js?key={{hola}}"></script>
->>>>>>> sunu
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyL_iQJ2HGYD239r1RdqeFs2N3XcClICc&libraries=places&callback=initMap"></script>
+    
+ 
