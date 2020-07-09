@@ -38,13 +38,12 @@ h3 {
 
 // LAYOUT NAV-BAR
 .navbar {
-  margin-bottom: 30px;
   padding: 0 40px;
-  background-color: #42DA19;
-  background-image: linear-gradient(#2ec720, #ffffff);
+  background-color: white;
+
 
   .color-ul a {
-    color: black;
+    color: #79BF24;;
     margin: 0 10px;
     font-weight: bold;
     font-size: 1.2em;
@@ -82,43 +81,44 @@ h3 {
 }
 
 #carousel-bkg {
-  margin: 40px auto;
-
+  margin: 0 auto 40px;
 
   #carouselIndex {
     .carousel-inner {
 
       img {
-        height: 500px;
-        width: 100%;
+        height: 620px;
       }
 
-      h2 {
-        font-size: 3em;
-        color: #29D5FF;
-        -webkit-text-stroke: 0.1px black;
+      h2{
+        color:black;
+        text-decoration: transparentize($color: #000000, $amount: 0);
+        font-family: "Yellowtail",
+        sans-serif;
+        font-size: 4em;
+        margin-bottom: 50px;
+
+      
       }
 
       p {
         font-size: 2em;
         -webkit-text-stroke: 0.1px black;
+        text-align: center;
+        margin-bottom: 100px;
+      }
+      .carru {
+        text-align: center;
       }
     }
   }
 }
 
 footer {
-  background-color: #42DA19;
-  background-image: linear-gradient(#ffffff, #2ec720);
   position: absolute;
   left: 0;
   right: 0;
   width: 100%;
-}
-
-#myMap {
-  height: 500px;
-  width: 900px;
 }
 
 // PRODUCTS
@@ -133,13 +133,61 @@ label {
 }
 
 .carousel {
-  margin-top: 20px;
 
   img {
     width: 100%;
-    height: 300px;
+    height: auto;
     object-fit: cover;
   }
 }
 
+.footer-copyright{
+  background-color: #F1F7FC;
+}
 
+.mb-2 {
+  font-size: 1.2em;
+  padding: 0 10px;
+}
+
+
+#myMap {
+  height: 500px;
+  width: 900px;
+}
+.controls {
+  margin-top: 10px;
+  border: 1px solid transparent;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 32px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+#origin-input,
+#destination-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 200px;
+}
+#origin-input:focus,
+#destination-input:focus {
+  border-color: #E6091A;
+}
+#mode-selector {
+  color: #fff;
+  background-color: #E6091A;
+  margin-left: 12px;
+  padding: 5px 11px 0px 11px;
+}
+#mode-selector label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}

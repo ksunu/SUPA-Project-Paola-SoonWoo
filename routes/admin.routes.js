@@ -186,7 +186,7 @@ router.get('/productDetails', (req, res) => {
     Product
         .findById(req.query.productId)
         .then(theProduct => res.render('private/product/productDetails', theProduct))
-        .catch(err => netx(err))
+        .catch(err => next(err))
 })
 
 router.get('/editProduct', (req, res) => {

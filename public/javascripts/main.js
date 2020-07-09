@@ -1,103 +1,108 @@
-let myMap
+function initMap() {
 
-window.onload = () => {
+  // SUPA index
+  const supaStore = {
+    lat: 40.392499,
+    lng: -3.698214
+  };
 
-    // SUPA index
-    const supaStore = {
-        lat: 40.392499,
-        lng: -3.698214
-    };
+  let myMap = new google.maps.Map(document.getElementById('myMap'), {
+    mapTypeControl: false,
+    center: supaStore,
+    zoom: 13,
+    styles: mapStyles.retro
 
-    myMap = new google.maps.Map(document.getElementById('myMap'), {
-        zoom: 13,
-        center: supaStore,
-        styles: mapStyles.retro
-    });
-
-    const geocoder = new google.maps.Geocoder();
-    document.getElementById('submit').addEventListener('click', function () {
-        geocodeAddress(geocoder, myMap);
-      });
-
-
-    const myMarker = new google.maps.Marker({
-        position: {
-            lat: 40.392499,
-            lng: -3.698214
-        },
-        map: myMap,
-        title: "¡SUPA está aquí!"
-    });
-    //directionService 
-
-    const directionRequest = {
-      origin: document.getElementById('address').value,
-      destination: supaStore,
-      travelMode: 'DRIVING',
-  }
-
-  const directionsService = new google.maps.DirectionsService
-
-  directionsService.route(
-      directionRequest,
-      (response, status) => {
-          console.log('El estado de la petición a directonsSevice ha sido:', status)
-          console.log('La respuesta del directonsSevice ha sido:', response)
-
-          const directionsDisplay = new google.maps.DirectionsRenderer
-          directionsDisplay.setDirections(response)
-          directionsDisplay.setMap(myMap)
-      }
-  )
- }
-
-//Geocoder
-
-
-
-function geocodeAddress(geocoder, resultsMap) {
-  let address = document.getElementById('address').value;
- 
-  geocoder.geocode({ 'address': address }, function (results, status) {
-
-    if (status === 'OK') {
-      resultsMap.setCenter(results[0].geometry.location);
-      let marker = new google.maps.Marker({
-        map: resultsMap,
-        position: results[0].geometry.location
-      });
-    } else {
-      alert('Geocode was not successful for the following reason: ' + status);
-    }
   });
+  
+  const image = {
+    url: "/images/supa (1).ico",
+    size: new google.maps.Size(48, 48),
+    origin: new google.maps.Point(0, 0),
+    anchor: new google.maps.Point(20, 50)
+  }
+    const myMarker = new google.maps.Marker({
+      position: supaStore,
+      map: myMap,
+      title: "¡SUPA está aquí!",
+      icon: image
+    })
+
+  new AutocompleteDirectionsHandler(myMap);
+
 }
 
-//dibujo de polilineas
-//  let flightPlanCoordinates = [{
-//   lat: 40.392499,
-//   lng: -3.698214
-// }]
+function AutocompleteDirectionsHandler(myMap) {
+  this.myMap = myMap;
+  this.originPlaceId = null;
+  this.destinationPlaceId = null;
+  this.travelMode = 'WALKING';
+  this.directionsService = new google.maps.DirectionsService;
+  this.directionsRenderer = new google.maps.DirectionsRenderer;
+  this.directionsRenderer.setMap(myMap);
+  let originInput = document.getElementById('origin-input');
+  let destinationInput = document.getElementById('destination-input');
+  let modeSelector = document.getElementById('mode-selector');
+  let originAutocomplete = new google.maps.places.Autocomplete(originInput);
 
-  // let flightPath = new google.maps.Polyline({
-  //   path: supaStore.resultsMap,
-  //   geodesic: true,
-  //   strokeColor: "#FF0000",
-  //   strokeOpacity: 1.0,
-  //   strokeWeight: 2
-  // });
+  originAutocomplete.setFields(['place_id']);
+  let destinationAutocomplete = new google.maps.places.Autocomplete(destinationInput);
 
-  // flightPath.setMap(myMap);
+  destinationAutocomplete.setFields(['place_id']);
+  this.setupClickListener('changemode-walking', 'WALKING');
+  this.setupClickListener('changemode-transit', 'TRANSIT');
+  this.setupClickListener('changemode-driving', 'DRIVING');
+  this.setupPlaceChangedListener(originAutocomplete, 'ORIG');
+  this.setupPlaceChangedListener(destinationAutocomplete, 'DEST');
+  this.myMap.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
+  this.myMap.controls[google.maps.ControlPosition.TOP_LEFT].push(destinationInput);
+  this.myMap.controls[google.maps.ControlPosition.TOP_LEFT].push(modeSelector);
+}
 
-//informacion de un sitio
-
-const ClickEventHandler = function() {
-
-    this.infowindow = new google.maps.InfoWindow();
-    this.infowindowContent = document.getElementById();
-   
-  };
-  ClickEventHandler.prototype.handleClick = function(event) {
-    console.log("You clicked on: " + event.latLng);
-    
-  };
-
+AutocompleteDirectionsHandler.prototype.setupClickListener = function (id, mode) {
+  let radioButton = document.getElementById(id);
+  let infoMap = this;
+  radioButton.addEventListener('click', function () {
+    infoMap.travelMode = mode;
+    infoMap.route();
+  });
+};
+AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function (
+  autocomplete, mode) {
+  let infoMap = this;
+  autocomplete.bindTo('bounds', this.myMap);
+  autocomplete.addListener('place_changed', function () {
+    let place = autocomplete.getPlace();
+    if (!place.place_id) {
+      window.alert('Please select an option from the dropdown list.');
+      return;
+    }
+    if (mode === 'ORIG') {
+      infoMap.originPlaceId = place.place_id;
+    } else {
+      infoMap.destinationPlaceId = place.place_id;
+    }
+    infoMap.route();
+  });
+};
+AutocompleteDirectionsHandler.prototype.route = function () {
+  if (!this.originPlaceId || !this.destinationPlaceId) {
+    return;
+  }
+  let infoMap = this;
+  this.directionsService.route({
+      origin: {
+        'placeId': this.originPlaceId
+      },
+      destination: {
+        'placeId': this.destinationPlaceId
+      },
+      travelMode: this.travelMode
+    },
+    function (response, status) {
+      if (status === 'OK') {
+        infoMap.directionsRenderer.setDirections(response);
+      } else {
+        window.alert('Directions request failed due to ' + status);
+      }
+    });
+};
