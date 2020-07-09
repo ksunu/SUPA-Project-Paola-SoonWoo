@@ -19,57 +19,6 @@ window.onload = () => {
     geocodeAddress(geocoder, myMap);
   });
 
-<<<<<<< HEAD
-    const myMarker = new google.maps.Marker({
-        position: {
-            lat: 40.392499,
-            lng: -3.698214
-        },
-        map: myMap,
-        title: "¡SUPA está aquí!"
-    });
-    //directionService 
-
-    const directionRequest = {
-      origin: document.getElementById('address').value,
-      destination: supaStore,
-      travelMode: 'DRIVING',
-  }
-
-  const directionsService = new google.maps.DirectionsService
-
-  directionsService.route(
-      directionRequest,
-      (response, status) => {
-          console.log('El estado de la petición a directonsSevice ha sido:', status)
-          console.log('La respuesta del directonsSevice ha sido:', response)
-
-          const directionsDisplay = new google.maps.DirectionsRenderer
-          directionsDisplay.setDirections(response)
-          directionsDisplay.setMap(myMap)
-      }
-  )
- }
-
-//Geocoder
-
-
-
-function geocodeAddress(geocoder, resultsMap) {
-  let address = document.getElementById('address').value;
- 
-  geocoder.geocode({ 'address': address }, function (results, status) {
-
-    if (status === 'OK') {
-      resultsMap.setCenter(results[0].geometry.location);
-      let marker = new google.maps.Marker({
-        map: resultsMap,
-        position: results[0].geometry.location
-      });
-    } else {
-      alert('Geocode was not successful for the following reason: ' + status);
-    }
-=======
 
   const myMarker = new google.maps.Marker({
     position: {
@@ -78,16 +27,8 @@ function geocodeAddress(geocoder, resultsMap) {
     },
     map: myMap,
     title: "¡SUPA está aquí!"
->>>>>>> sunu
   });
 
-<<<<<<< HEAD
-//dibujo de polilineas
-//  let flightPlanCoordinates = [{
-//   lat: 40.392499,
-//   lng: -3.698214
-// }]
-=======
   //Geocoder
 
   function geocodeAddress(geocoder, resultsMap) {
@@ -116,7 +57,6 @@ function geocodeAddress(geocoder, resultsMap) {
     },
 
   ];
->>>>>>> sunu
 
   // let flightPath = new google.maps.Polyline({
   //   path: supaStore.resultsMap,
@@ -136,15 +76,11 @@ function geocodeAddress(geocoder, resultsMap) {
     this.infowindowContent = document.getElementById();
 
   };
-<<<<<<< HEAD
-  ClickEventHandler.prototype.handleClick = function(event) {
-=======
 
 
 
   ClickEventHandler.prototype.handleClick = function (event) {
->>>>>>> sunu
     console.log("You clicked on: " + event.latLng);
 
-  };
-
+  }
+}
