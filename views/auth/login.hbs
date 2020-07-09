@@ -1,31 +1,31 @@
 <section class="container">
-    <article id="login">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
 
-                <h1>Inicio de sesión</h1>
+    <article class="row justify-content-center">
+        <div id="signup-form">
+            <form action="/login" method="post">
+                <h1>¡Bienvenidos!</h1>
+                <p>Para comenzar, por favor entra con tu cuenta Supa</p>
+                <hr>
+                <div class="form-group">
+                    <label for="username"></label>
+                    <input name="username" type="text" class="form-control" id="username"
+                        placeholder="Nombre de ususario">
+                </div>
+                <div class="form-group">
+                    <label for="password"></label>
+                    <input name="password" type="password" class="form-control" id="password" placeholder="Contraseña">
+                </div>
 
-                <form action="/login" method="POST">
-                    <div class="form-group">
-                        <label for="username">Nombre de usuario</label>
-                        <input name="username" type="text" class="form-control" id="username">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Contraseña</label>
-                        <input name="password" type="password" class="form-control" id="password">
-                    </div>
+                {{#if errorMsg}}
+                <div id="errorMsg">{{{errorMsg}}}</div>
+                {{/if}}
 
-                    <button type="submit" class="btn">Iniciar sesión</button>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-lg">Iniciar sesión</button>
+                </div>
+                <div>¿No tienes cuenta? <a href="/signup">Crea una cuenta</a></div>
+            </form>
 
-                    {{#if errorMsg}}
-                    <div id="errorMsg">{{{errorMsg}}}</div>
-                    {{/if}}
-
-                </form>
-                <br>
-                <p>¿No tienes cuenta? <a href="/signup">Regístrate</a></p>
-            </div>
         </div>
-
     </article>
 </section>

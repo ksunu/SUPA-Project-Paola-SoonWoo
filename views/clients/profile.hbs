@@ -1,25 +1,43 @@
-<div class="container">
-    <img src="https://icons-for-free.com/iconfiles/png/512/instagram+person+profile+icon-1320184028516722357.png" alt="profile">
-    <h1>Tu Perfil</h1>
-    <ul>
-        <li>Nombre de Usuario:</li>
-        <h3> {{currentUser.username}} </h3>
-        <li>Nombre:</li>
-        <h3> {{currentUser.name}} </h3>
-        <li>Dirección:</li>
-        <h3> {{currentUser.address}} </h3>
-        <li>Contacto:</li>
-        <h3> {{currentUser.contact}} </h3>
-    </ul>
-    <p></p>
-    <a class="btn" href="/client/edit/{{currentUser._id}}">Editar perfil</a>
+<section class="container" id="profile-page">
+    <article class="row d-flex justify-content-between">
+        <h1>Tu Perfil</h1>
+        <a class="btn" href="/client/edit/{{currentUser._id}}">Editar perfil</a>
+    </article>
+    <hr>
+    <article class="row">
+        <div class="col-3">
+            <img src="" alt="Foto de perfil">
+        </div>
+        <div class="col-6" id="signup-form">
+            <ul>
+                <li>
+                    <h1>Información</h1>
+                    <p>Esto son los datos de tu perfil:</p>
+                <li>
+                    <h4>Usuario:</h4>
+                    <h3> {{currentUser.username}} </h3>
+                <li>
+                    <h4>Nombre del usuario:</h4>
+                    <h3> {{currentUser.name}} </h3>
 
-</div>
+                <li>
+                    <h4>Dirección:</h4>
+                    <h3> {{currentUser.address}} </h3>
 
-<figure id="clientMap"></figure>
+                <li>
+                    <h4>Contacto:</h4>
+                    <h3> {{currentUser.contact}} </h3>
+
+
+            </ul>
+
+        </div>
+    </article>
+</section>
+{{!-- <figure id="clientMap"></figure>
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="/javascripts/directions.js"> </script>
 <script src="/javascripts/mapStyles.js"> </script>
 <script src="/javascripts/main.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key={{api_key}}&callback=initMap"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{api_key}}&callback=initMap"></script> --}}

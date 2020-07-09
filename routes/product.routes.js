@@ -9,7 +9,7 @@ router.get('/list', (req, res, next) => {
         .then(allProducts => res.render('products/list', {
             allProducts
         }))
-        .catch(err => netx(err))
+        .catch(err => next(err))
 })
 
 router.get('/details/:productId', (req, res) => {
@@ -17,7 +17,7 @@ router.get('/details/:productId', (req, res) => {
     Product
         .findById(req.params.productId)
         .then(theProduct => res.render('products/details', theProduct))
-        .catch(err => netx(err))
+        .catch(err => next(err))
 })
 
 module.exports = router
