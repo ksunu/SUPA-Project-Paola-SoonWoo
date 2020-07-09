@@ -1,6 +1,5 @@
 function initMap() {
-
-  // SUPA index
+// SUPA index
   const supaStore = {
     lat: 40.392499,
     lng: -3.698214

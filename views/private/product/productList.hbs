@@ -1,21 +1,20 @@
 <div class="container">
+    <a id="admin-btn" href="/admin/admin" role="ADMIN">
+        <image
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Open_Access_logo_PLoS_transparent.svg/110px-Open_Access_logo_PLoS_transparent.svg.png"
+            alt="Acceso Administrador"> Admin
+    </a>
     <a href="/admin/admin" class="btn">Volver</a>
     <a class="btn" href="/admin/newProduct">Crear productos</a>
     <h1>Listado de productos</h1>
     <section class="row">
 
         {{#each allProducts}}
-        <span class="col-3">
-            <p>{{name}}
-                <br>
-                <img id="imgProduct" src="{{img}}" alt="product image">
-                <a class="btn btn-sm" href="/admin/productDetails?productId={{_id}}">detalles</a>
-                <a class="btn btn-sm" href="/admin/deleteProduct?id={{_id}}">eliminar</a>
-                <a class="btn btn-sm" href="/admin/editProduct?productId={{_id}}">editar</a>
-            </p>
-
-
-        </span>
+        <div class="col-md-3 col-sm-6">
+            {{>productList}}
+            <a class="btn btn-sm" href="/admin/deleteProduct?id={{_id}}">eliminar</a>
+            <a class="btn btn-sm" href="/admin/editProduct?productId={{_id}}">editar</a>
+        </div>
         {{/each}}
 
     </section>

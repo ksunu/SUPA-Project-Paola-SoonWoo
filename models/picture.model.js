@@ -1,9 +1,15 @@
 const mongoose = require("mongoose");
 
 const pictureSchema = new mongoose.Schema({
-    name: String,
-    path: String,
-    originalName: String
+    name: {
+        type: String
+    },
+    path: {
+        type: String
+    },
+    originalName: {
+        type: String
+    },
 }, {
     timestamps: true
 })

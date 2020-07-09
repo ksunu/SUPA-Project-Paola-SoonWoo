@@ -9,6 +9,7 @@ cloudinary.config({
     api_url: process.env.CLOUDINARY_URL
 })
 
+// ADMIN GALLERY
 const storage = cloudinaryStorage({
     cloudinary: cloudinary,
     folder: 'SUPA Project',
@@ -22,4 +23,19 @@ const uploadCloud = multer({
     storage: storage
 })
 
+// USER GALLERY
+const storageClient = cloudinaryStorage({
+    cloudinary: cloudinary,
+    folder: 'SUPA Project Client',
+    allowedFormats: ['jpg', 'png'],
+    filename: function (req, file, cb) {
+        cb(null, file.originalname)
+    }
+})
+
+const uploadCloudClient = multer({
+    storage: storageClient
+})
+
+module.exports = uploadCloudClient
 module.exports = uploadCloud

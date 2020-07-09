@@ -13,6 +13,7 @@ module.exports = app => {
     next()
   })
 
+  
 
   // Base URLS
   app.use('/', require('./base.routes'))
@@ -21,4 +22,5 @@ module.exports = app => {
   app.use('/admin', require('./admin.routes'))
   app.use('/client', require('./client.routes'))
   app.use('/files', require('./upload.routes'))
+  
 }

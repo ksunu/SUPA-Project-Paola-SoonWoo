@@ -13,17 +13,6 @@ const checkAuthenticated = (req, res, next) => req.isAuthenticated() ? next() : 
 // Role checker middleware
 const checkRole = rolesToCheck => (req, res, next) => req.isAuthenticated() && rolesToCheck.includes(req.user.role) ? next() : res.redirect('/login')
 
-// Check role ADMIN
-const isBoss = user => user.role === 'ADMIN'
-router.get('/', (req, res) => {
-    if (req.user) {
-        res.render('index', {
-            isBoss: isBoss(req.user)
-        })
-    }
-    res.render('index')
-})
-
 // Check logged in session
 router.get('/profile', checkAuthenticated, (req, res) => res.render('private/profile', {
     user: req.user
@@ -36,13 +25,11 @@ router.get('/admin', checkRole(['ADMIN']), (req, res, next) => {
 // -------------USERNAME-------------
 // ADMIN Check logged in session & roles 
 router.get('/profileList', checkRole(['ADMIN']), (req, res, next) => {
-    console.log(req.user.role)
     User.find()
         .then(allUsers => res.render('private/profile/profiles', {
             allUsers,
-            isBoss: isBoss(req.user)
         }))
-        .catch(err => console.log("DDBB Error", err))
+.catch(err => next(err))
 })
 
 
@@ -51,7 +38,7 @@ router.get('/profileList', checkRole(['ADMIN']), (req, res, next) => {
 router.get('/profileDetails/:userId', (req, res) => {
     User.findById(req.params.userId)
         .then(theUser => res.render('private/profile/profileDetails', theUser))
-        .catch(err => console.log('Error en la BBDD', err))
+.catch(err => next(err))
 })
 
 // ADMIN EDIT USERS
@@ -60,7 +47,7 @@ router.get('/edit', (req, res) => {
         .then(theUser => res.render('private/profile/profileEdit-form', {
             theUser
         }))
-        .catch(err => console.log("Error en la BBDD", err))
+        .catch(err => next(err))
 })
 
 router.post('/edit', (req, res, next) => {
@@ -82,7 +69,7 @@ router.post('/edit', (req, res, next) => {
             new: true
         })
         .then(() => res.redirect(`/admin/profileDetails/${req.query.userId}`))
-        .catch(err => console.log("Error en la BBDD", err))
+        .catch(err => next(err))
 })
 
 // ADMIN CREATE NEW USERS
@@ -108,9 +95,6 @@ router.post('/newUser', (req, res, next) => {
         return
     }
 
-    const salt = bcrypt.genSaltSync(bcryptSalt)
-    const hashPass = bcrypt.hashSync(password, salt)
-
     User.findOne({
             username
         })
@@ -121,19 +105,20 @@ router.post('/newUser', (req, res, next) => {
                 })
                 return
             }
-            const salt = bcrypt.genSaltSync(bcryptSalt)
-            const hashPass = bcrypt.hashSync(password, salt)
-
-            User.create({
-                    username,
-                    role,
-                    password: hashPass
-                })
-                .then(() => res.redirect('/admin/profileList'))
-                .catch(() => res.render("admin/profile/profileCreate-form", {
-                    errorMsg: "No se pudo crear el usuario"
-                }))
         })
+
+    const salt = bcrypt.genSaltSync(bcryptSalt)
+    const hashPass = bcrypt.hashSync(password, salt)
+
+    User.create({
+            username,
+            role,
+            password: hashPass
+        })
+        .then(() => res.redirect('/admin/profileList'))
+        .catch(() => res.render("admin/profile/profileCreate-form", {
+            errorMsg: "No se pudo crear el usuario"
+        }))
 })
 
 // ADMIN DELETE USER
@@ -167,7 +152,7 @@ router.post('/newProduct', (req, res) => {
             img
         })
         .then(() => res.redirect('/admin/productList'))
-        .catch(err => console.log("Error en la BBDD", err))
+        .catch(err => next(err))
 })
 
 
@@ -196,7 +181,7 @@ router.get('/editProduct', (req, res) => {
             theProduct
         }))
 
-        .catch(err => console.log("Error en la BBDD", err))
+        .catch(err => next(err))
 })
 
 router.post('/editProduct', (req, res) => {
@@ -223,7 +208,7 @@ router.post('/editProduct', (req, res) => {
         .catch(err => console.log("Error en la BBDD", err))
 })
 
-
+// ADMIN DELETE PRODUCT
 router.get('/deleteProduct', (req, res, next) => {
     Product
         .findByIdAndDelete(req.query.id)

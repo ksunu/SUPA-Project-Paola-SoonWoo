@@ -3,6 +3,26 @@
   font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
+body {
+  font-weight: 200;
+  margin-top: 100px;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 200;
+}
+
+#errorMsg {
+  color: red;
+  font-weight: 400;
+  text-align: center;
+  padding: 10px auto;
+  margin-top: 5px;
+}
+
+// COMPONENTS
 .btn {
   background-color: #E6091A;
   border-radius: 0;
@@ -15,27 +35,6 @@
   }
 }
 
-#errorMsg {
-  background-color: red;
-  color: white;
-  font-weight: 400;
-  text-align: center;
-  padding: 10px 0;
-  margin-top: 5px;
-}
-
-body {
-  font-weight: 200;
-  margin-top: 100px;
-
-}
-
-h1,
-h2,
-h3 {
-  font-weight: 200;
-}
-
 // LAYOUT NAV-BAR
 .navbar {
   padding: 0 40px;
@@ -43,13 +42,15 @@ h3 {
 
 
   .color-ul a {
-    color: #79BF24;;
+    color: #79BF24;
+    ;
     margin: 0 10px;
     font-weight: bold;
     font-size: 1.2em;
   }
 }
 
+// USER ACCESS
 .logged {
   font-size: 0.8em;
   margin: 8px 0 0 30px;
@@ -60,6 +61,21 @@ h3 {
 
   a {
     text-decoration: none;
+  }
+}
+
+// ADMIN PAGE ACCESS 
+#admin-btn {
+  right: 0;
+  margin: auto 30px;
+  position: fixed;
+  text-align: right;
+  text-decoration: none;
+  color: green;
+  z-index: 999;
+
+  img {
+    height: 35px;
   }
 }
 
@@ -74,14 +90,34 @@ h3 {
   p {
     font-size: 1.4em;
   }
+
+  i {
+    color: grey;
+  }
 }
 
 #logo {
   width: 70px;
 }
 
+// CARROUSEL
 #carousel-bkg {
-  margin: 0 auto 40px;
+  margin: 40px auto;
+  opacity: 0.8;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  .carousel {
+    margin-top: 20px;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
 
   #carouselIndex {
     .carousel-inner {
@@ -90,15 +126,15 @@ h3 {
         height: 620px;
       }
 
-      h2{
-        color:black;
+      h2 {
+        color: black;
         text-decoration: transparentize($color: #000000, $amount: 0);
         font-family: "Yellowtail",
-        sans-serif;
+          sans-serif;
         font-size: 4em;
         margin-bottom: 50px;
 
-      
+
       }
 
       p {
@@ -107,6 +143,7 @@ h3 {
         text-align: center;
         margin-bottom: 100px;
       }
+
       .carru {
         text-align: center;
       }
@@ -132,29 +169,79 @@ label {
   margin-top: 10px;
 }
 
-.carousel {
+// ADMIN PAGE
+#admin-page {
+  display: inline-flex;
 
+  li {
+    list-style: none;
+    margin: 25px;
+    border: 1px solid rgb(201, 201, 201);
+    border-radius: 10% 10%;
+    display: inline;
+    padding-bottom: 10px;
+
+    .btn {
+      width: 200px;
+    }
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    img {
+      max-width: 200px;
+      padding: 10px;
+    }
+
+  }
+
+}
+
+// PROFILE PAGE
+#profile-page {
   img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+    width: 200px;
+    height: 200px;
+  }
+
+  ul {
+    list-style: none;
+
+    li {
+      margin: 30px;
+
+      h3 {
+        color: green;
+      }
+    }
   }
 }
 
-.footer-copyright{
-  background-color: #F1F7FC;
-}
+// SIGN UP FORM
+#signup-form {
+  border: 1px solid lightgrey;
+  border-color: lightgrey;
+  border-radius: 6px;
+  padding: 20px 0 auto;
+  width: 400px;
+  color: rgb(126, 125, 125);
 
-.mb-2 {
-  font-size: 1.2em;
-  padding: 0 10px;
-}
+  form {
+    margin: auto;
+    padding: 50px;
+  }
 
+  input {
+    border-radius: 30px
+  }
+}
 
 #myMap {
   height: 500px;
   width: 900px;
 }
+
 .controls {
   margin-top: 10px;
   border: 1px solid transparent;
@@ -165,6 +252,7 @@ label {
   outline: none;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
+
 #origin-input,
 #destination-input {
   background-color: #fff;
@@ -176,18 +264,31 @@ label {
   text-overflow: ellipsis;
   width: 200px;
 }
+
 #origin-input:focus,
 #destination-input:focus {
   border-color: #E6091A;
 }
+
 #mode-selector {
   color: #fff;
   background-color: #E6091A;
   margin-left: 12px;
   padding: 5px 11px 0px 11px;
 }
+
 #mode-selector label {
   font-family: Roboto;
   font-size: 13px;
   font-weight: 300;
+}
+
+
+.footer-copyright {
+  background-color: #F1F7FC;
+}
+
+.mb-2 {
+  font-size: 1.2em;
+  padding: 0 10px;
 }
