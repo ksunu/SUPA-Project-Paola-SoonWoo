@@ -25,20 +25,6 @@ const userSchema = new mongoose.Schema({
         contact: {
             type: Number
         },
-        // details: {
-        //     street: {
-        //         type: String
-        //     },
-        //     number: {
-        //         type: Number
-        //     },
-        //     postal_code: {
-        //         type: Number
-        //     },
-        //     city: {
-        //         type: String
-        //     },
-        // }
     },
     contact: {
         type: Number

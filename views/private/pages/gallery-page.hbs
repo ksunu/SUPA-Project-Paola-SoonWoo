@@ -5,43 +5,27 @@
             alt="Acceso Administrador"> Admin
     </a>
     <h1>Galería</h1>
+    <hr>
+    <a class="btn btn-lg" href="/files/upload-cdn">Subir Contenido</a>
 
     <section class="row">
+
         {{#each allThePictures}}
         <article class="col-3">
-            <ul>
-                <li>
-                    <img src="{{path}}" alt="{{name}}" style="width: 100%">
-                </li>
-            </ul>
-            <a class="btn btn-sm" href="/deleteImage/{{_id}}">Eliminar</a>
+            <div class="card-group">
+                <div class="card">
+                    <div class="card-body text-center">
+
+                        <h4 class="card-title">{{name}}</h4>
+                        <img src="{{path}}" alt="{{name}}" style="width: 100%">
+
+                    </div>
+                </div>
+            </div>
         </article>
+
         {{/each}}
     </section>
-
-    <section>
-
-        <div class="glide carousel">
-            <div class="glide__track" data-glide-el="track">
-                <ul class="glide__slides">
-
-                    {{#each allThePictures}}
-
-                    <li class="glide__slide">
-                        <img src="{{path}}" alt="{{name}}" style="width: 100%">
-                    </li>
-
-                    {{/each}}
-
-                </ul>
-            </div>
-            <div class="glide__arrows" data-glide-el="controls">
-                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
-                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
-            </div>
-        </div>
-    </section>
-
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>

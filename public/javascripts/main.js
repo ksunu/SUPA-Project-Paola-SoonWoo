@@ -15,9 +15,9 @@ function initMap() {
   
   const image = {
     url: "/images/supa (1).ico",
-    size: new google.maps.Size(48, 48),
+    size: new google.maps.Size(60, 60),
     origin: new google.maps.Point(0, 0),
-    anchor: new google.maps.Point(20, 50)
+    anchor: new google.maps.Point(20, 55)
   }
     const myMarker = new google.maps.Marker({
       position: supaStore,

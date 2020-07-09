@@ -151,12 +151,12 @@ h3 {
   }
 }
 
-footer {
-  position: absolute;
-  left: 0;
-  right: 0;
-  width: 100%;
-}
+// footer {
+//   position: absolute;
+//   left: 0;
+//   right: 0;
+//   width: 100%;
+// }
 
 // PRODUCTS
 #imgProduct {
@@ -239,7 +239,8 @@ label {
 
 #myMap {
   height: 500px;
-  width: 900px;
+  width: 1350px;
+  margin-left: 20px;
 }
 
 .controls {
@@ -285,10 +286,20 @@ label {
 
 
 .footer-copyright {
-  background-color: #F1F7FC;
+  background-color: black;
+  color: white;
 }
 
 .mb-2 {
   font-size: 1.2em;
   padding: 0 10px;
 }
+
+
+
+footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
