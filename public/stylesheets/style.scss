@@ -71,7 +71,7 @@ h3 {
   position: fixed;
   text-align: right;
   text-decoration: none;
-  color: green;
+  color: grey;
   z-index: 999;
 
   img {
@@ -296,10 +296,17 @@ label {
 }
 
 
+// SOONWOO
+#avatar {
+  width: 300px;
+  height: 300px;
+}
 
-footer {
-    position: absolute;
-    left: 0;
-    right: 0;
-    width: 100%;
-  }
+.card {
+  padding: 5px;
+  margin: 5px;
+}
+
+#product-detail {
+  padding: 30px
+}

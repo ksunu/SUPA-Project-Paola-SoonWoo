@@ -8,24 +8,21 @@
     <a href="/admin/newUser"><button class="btn btn-outline-primary btn-md" type="submit">Crear nuevo
             usuario</button></a>
 
+    <section class="row">
+        {{#each allUsers}}
+        <article class="col-3">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="..." alt="avatar">
+                <div class="card-body">
+                    <h5 class="card-title"><a href="/admin/profileDetails/{{_id}}">
+                            {{username}}</h5></a>
+                    <p class="card-text">Rol: {{role}}</p>
 
-    {{#each allUsers}}
-    <hr>
-    <section class="row" id="users-section">
-        <article class="col-6">
-            <h3>Usuario: {{username}}</h3>
-            <p>Rol: {{role}}</p>
-            <p>Contraseña: {{password}}</p>
+                    <a href="/admin/edit?userId={{_id}}" class="btn btn-sm">Editar</a>
+                    <a href="/admin/deleteUser?id={{_id}}" class="btn btn-sm">Eliminar</a>
+                </div>
+            </div>
         </article>
-
-        <article class="col-6 btn-section">
-            <a class="btn btn-sm" href="/admin/profileDetails/{{_id}}">Ver detalles</a>
-            <a href="/admin/edit?userId={{_id}}" class="btn btn-sm">Editar</a>
-            <a href="/admin/deleteUser?id={{_id}}" class="btn btn-sm">Eliminar</a>
-        </article>
+        {{/each}}
 
     </section>
-    {{/each}}
-
-
-</div>

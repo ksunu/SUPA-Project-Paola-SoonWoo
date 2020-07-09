@@ -49,7 +49,7 @@ h3 {
   position: fixed;
   text-align: right;
   text-decoration: none;
-  color: green;
+  color: grey;
   z-index: 999; }
   #admin-btn img {
     height: 35px; }
@@ -197,5 +197,16 @@ footer {
   left: 0;
   right: 0;
   width: 100%; }
+
+#avatar {
+  width: 300px;
+  height: 300px; }
+
+.card {
+  padding: 5px;
+  margin: 5px; }
+
+#product-detail {
+  padding: 30px; }
 
 /*# sourceMappingURL=style.css.map */

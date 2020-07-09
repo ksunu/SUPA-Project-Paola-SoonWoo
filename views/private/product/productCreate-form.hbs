@@ -1,33 +1,50 @@
-<a id="admin-btn" href="/admin/admin" role="ADMIN">
-    <image
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Open_Access_logo_PLoS_transparent.svg/110px-Open_Access_logo_PLoS_transparent.svg.png"
-        alt="Acceso Administrador"> Admin
-</a>
-<h3>Crea un nuevo producto</h3>
+<section class="container">
+    <a id="admin-btn" href="/admin/admin" role="ADMIN">
+        <image
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Open_Access_logo_PLoS_transparent.svg/110px-Open_Access_logo_PLoS_transparent.svg.png"
+            alt="Acceso Administrador"> Admin
+    </a>
+    <article class="row justify-content-center">
+        <div id="signup-form">
+            <form action="/admin/newProduct" method="post">
+                <h1>Nuevo producto</h1>
+                <p>¡Crear un nuevo producto!</p>
+                <hr>
+                <div class="form-group">
+                    <label for="category"></label>
+                    <h4>Categoría</h4>
+                    <input name="category" type="text" class="form-control" id="category"
+                        placeholder="'fruta', 'verdura y hortaliza'">
+                </div>
+                <div class="form-group">
+                    <label for="name"></label>
+                    <h4>Nombre</h4>
+                    <input name="name" type="text" class="form-control" id="name" placeholder="Nombre del producto">
+                </div>
+                <div class="form-group">
+                    <label for="description"></label>
+                    <h4>Descripción</h4>
+                    <input name="description" type="text" class="form-control" id="description"
+                        placeholder="Descripción del producto">
+                </div>
+                <div class="form-group">
+                    <label for="price"></label>
+                    <h4>Precio</h4>
+                    <input name="price" type="text" class="form-control" id="price" placeholder="Precio del producto">
+                </div>
+                <div class="form-group">
+                    <label for="image"></label>
+                    <h4>Imagen</h4>
+                    <input name="image" type="url" class="form-control" id="image"
+                        placeholder="Url de la imagen del producto">
+                </div>
+                <button type="submit" class="btn">Crear producto</button>
+                <a href="/admin/productList" class="btn">Volver</a>
+                {{#if errorMsg}}
+                <div id="errorMsg">{{{errorMsg}}}</div>
+                {{/if}}
 
-<form method="POST" action="/admin/newProduct">
-    <ul>
-        <li>
-            <input type="text" name="category" placeholder="category">
-        </li>
-        <li>
-            <input type="text" name="type" placeholder="type">
-        </li>
-        <li>
-            <input type="text" name="name" placeholder="name">
-        </li>
-        <li>
-            <input type="text" name="description" placeholder="description">
-        </li>
-        <li>
-            <input type="text" name="price" placeholder="price">
-        </li>
-        <li>
-            <input type="text" name="img" placeholder="image">
-        </li>
-    </ul>
-
-
-    <input class="btn" type="submit" name="" id="submit">
-</form>
-<a class="btn" href="/admin/admin">Volver</a>
+            </form>
+        </div>
+    </article>
+</section>

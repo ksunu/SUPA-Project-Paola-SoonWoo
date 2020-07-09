@@ -33,18 +33,20 @@ router.post("/signup", (req, res, next) => {
                 })
                 return
             }
-            const salt = bcrypt.genSaltSync(bcryptSalt)
-            const hashPass = bcrypt.hashSync(password, salt)
-
-            User.create({
-                    username,
-                    password: hashPass
-                })
-                .then(() => res.redirect("/"))
-                .catch(() => res.render("auth/signup", {
-                    errorMsg: "No se pudo crear el usuario"
-                }))
         })
+
+    const salt = bcrypt.genSaltSync(bcryptSalt)
+    const hashPass = bcrypt.hashSync(password, salt)
+
+    User.create({
+            username,
+            password: hashPass
+        })
+        .then(() => res.redirect("/"))
+        .catch(() => res.render("auth/signup", {
+            errorMsg: "No se pudo crear el usuario"
+        }))
+
         .catch(error => next(error))
 })
 
