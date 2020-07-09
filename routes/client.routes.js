@@ -27,7 +27,7 @@ router.post('/edit', (req, res, next) => {
         name,
         avatar,
         address,
-        contact
+        contact,
     } = req.body
 
     User
@@ -36,7 +36,7 @@ router.post('/edit', (req, res, next) => {
             name,
             avatar,
             address,
-            contact
+            contact,
         }, {
             new: true
         })

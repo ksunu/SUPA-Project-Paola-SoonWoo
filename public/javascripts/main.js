@@ -1,5 +1,5 @@
 function initMap() {
-// SUPA index
+  // SUPA index
   const supaStore = {
     lat: 40.392499,
     lng: -3.698214
@@ -12,19 +12,19 @@ function initMap() {
     styles: mapStyles.retro
 
   });
-  
+
   const image = {
     url: "/images/supa (1).ico",
     size: new google.maps.Size(48, 48),
     origin: new google.maps.Point(0, 0),
     anchor: new google.maps.Point(20, 50)
   }
-    const myMarker = new google.maps.Marker({
-      position: supaStore,
-      map: myMap,
-      title: "¡SUPA está aquí!",
-      icon: image
-    })
+  const myMarker = new google.maps.Marker({
+    position: supaStore,
+    map: myMap,
+    title: "¡SUPA está aquí!",
+    icon: image
+  })
 
   new AutocompleteDirectionsHandler(myMap);
 

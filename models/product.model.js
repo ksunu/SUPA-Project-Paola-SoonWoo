@@ -5,9 +5,6 @@ const productSchema = new mongoose.Schema({
         type: String,
         enum: ['fruta', 'verdura y hortaliza']
     },
-    type: {
-        type: String
-    },
     name: {
         type: String
     },

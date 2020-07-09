@@ -71,7 +71,7 @@ h3 {
   position: fixed;
   text-align: right;
   text-decoration: none;
-  color: green;
+  color: grey;
   z-index: 999;
 
   img {
@@ -151,12 +151,12 @@ h3 {
   }
 }
 
-footer {
-  position: absolute;
-  left: 0;
-  right: 0;
-  width: 100%;
-}
+// footer {
+//   position: absolute;
+//   left: 0;
+//   right: 0;
+//   width: 100%;
+// }
 
 // PRODUCTS
 #imgProduct {
@@ -291,4 +291,93 @@ label {
 .mb-2 {
   font-size: 1.2em;
   padding: 0 10px;
+}
+
+
+//PAOLA
+footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// SOONWOO
+#avatar {
+  width: 300px;
+  height: 300px;
+}
+
+.card {
+  padding: 5px;
+  margin: 5px;
+}
+
+#product-detail {
+  padding: 30px
 }

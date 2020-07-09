@@ -18,6 +18,13 @@
 </head>
 
 <body>
+  {{#if isBoss}}
+  <a id="admin-btn" href="/admin/admin" role="ADMIN">
+    <image
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Open_Access_logo_PLoS_transparent.svg/110px-Open_Access_logo_PLoS_transparent.svg.png"
+      alt="Acceso Administrador"> Admin
+  </a>
+  {{/if}}
   <div class="menu">
     <nav class="navbar navbar-expand-lg navbar-toggleable-sm fixed-top">
 
@@ -62,13 +69,7 @@
   </div>
 
   <main>
-    {{#if isBoss}}
-    <a id="admin-btn" href="/admin/admin" role="ADMIN">
-      <image
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Open_Access_logo_PLoS_transparent.svg/110px-Open_Access_logo_PLoS_transparent.svg.png"
-        alt="Acceso Administrador"> Admin
-    </a>
-    {{/if}}
+
     {{{body}}}
   </main>
 

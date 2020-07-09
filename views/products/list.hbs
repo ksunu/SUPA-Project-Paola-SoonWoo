@@ -2,9 +2,11 @@
     <h1>Listado de productos</h1>
     <div class="row">
         {{#each allProducts}}
-        <div class="col-md-3 col-sm-6">
-            {{>productList}}
-        </div>
+        <article class="col-md-3 col-sm-6">
+            <div class="card" style="width: 10rem;">
+                {{>productList}}
+            </div>
+        </article>
         {{/each}}
     </div>
 </div>

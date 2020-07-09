@@ -4,17 +4,20 @@
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Open_Access_logo_PLoS_transparent.svg/110px-Open_Access_logo_PLoS_transparent.svg.png"
             alt="Acceso Administrador"> Admin
     </a>
+    <h1>Listado de productos</h1>
+    <hr>
     <a href="/admin/admin" class="btn">Volver</a>
     <a class="btn" href="/admin/newProduct">Crear productos</a>
-    <h1>Listado de productos</h1>
     <section class="row">
 
         {{#each allProducts}}
-        <div class="col-md-3 col-sm-6">
-            {{>productList}}
-            <a class="btn btn-sm" href="/admin/deleteProduct?id={{_id}}">eliminar</a>
-            <a class="btn btn-sm" href="/admin/editProduct?productId={{_id}}">editar</a>
-        </div>
+        <article class="col-md-3 col-sm-6">
+            <div class="card" style="width: 10rem;">
+                {{>productList}}
+                <a class="btn btn-sm" href="/admin/deleteProduct?id={{_id}}">eliminar</a>
+                <a class="btn btn-sm" href="/admin/editProduct?productId={{_id}}">editar</a>
+            </div>
+        </article>
         {{/each}}
 
     </section>
