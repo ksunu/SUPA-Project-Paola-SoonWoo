@@ -8,6 +8,8 @@ const Store = require('../models/store.model')
 const bcrypt = require("bcrypt")
 const bcryptSalt = 10
 
+const cloudUploader = require('../configs/cloudinary.config')
+
 router.get('/profile', (req, res, next) => {
     User
         .find()
@@ -21,22 +23,33 @@ router.get('/edit/:id', (req, res) => {
         .catch(err => next(err))
 })
 
-router.post('/edit', (req, res, next) => {
+router.post('/edit', cloudUploader.single('imageFile'), (req, res, next) => {
+    const {
+        _id
+    } = req.user
+
     const {
         username,
         name,
-        avatar,
         address,
         contact,
     } = req.body
 
+    const tempUsername = username || req.user.username
+    const tempName = name || req.user.name
+    const tempAddress = address || req.user.address
+    const tempcontact = contact || req.user.contact
+    const tempURL = req.file ? req.file.url : req.user.avatar
+
     User
-        .findByIdAndUpdate(req.query.id, {
-            username,
-            name,
-            avatar,
-            address,
-            contact,
+        .findByIdAndUpdate({
+            _id
+        }, {
+            username: tempUsername,
+            name: tempName,
+            avatar: tempURL,
+            address: tempAddress,
+            contact: tempcontact,
         }, {
             new: true
         })

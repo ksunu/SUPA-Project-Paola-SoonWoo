@@ -192,12 +192,6 @@ label {
   font-size: 1.2em;
   padding: 0 10px; }
 
-footer {
-  position: absolute;
-  left: 0;
-  right: 0;
-  width: 100%; }
-
 #avatar {
   width: 300px;
   height: 300px; }
