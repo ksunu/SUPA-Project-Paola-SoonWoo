@@ -8,14 +8,14 @@
                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Open_Access_logo_PLoS_transparent.svg/110px-Open_Access_logo_PLoS_transparent.svg.png"
                         alt="Acceso Administrador"> Admin
                 </a>
-                <h2>Subir imagen a Cloudinary</h2>
-
-                <form action="/files/upload-cdn" method="post" enctype="multipart/form-data">
-                    <input type="text" name="imageName" placeholder="Nombre de imagen"><br><br>
-
-                    <input type="file" name="imageFile"><br><br>
-                    <botton class="btn btn-primary btn-lg" type="submit" value="Subir">Subir</botton>
-                </form>
+                <section>
+                    <h2>Subida de imagen</h2>
+                    <form action="/files/upload-cdn" method="post" enctype="multipart/form-data">
+                        <input type="text" name="imageName" placeholder="Nombre de imagen"><br><br>
+                        <input type="file" name="imageFile"><br><br>
+                        <input type="submit" value="Subir">
+                    </form>
+                </section>
         </div>
 
 
