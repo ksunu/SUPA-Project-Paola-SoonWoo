@@ -22,13 +22,9 @@ Run
 
 ## Construido con 🛠️
 
-_Menciona las herramientas que utilizaste para crear tu proyecto_
-
 * [JsQuery](https://code.jquery.com/jquery-3.2.1.slim.min.js) - Carousel
 * [Maven](https://maven.apache.org/) - Manejador de dependencias
 * [ROME](https://rometools.github.io/rome/) - Usado para generar RSS
-
-* [Jquery](https://code.jquery.com/jquery-3.2.1.slim.min.js) - carousel
 * [Ajax](https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js) - Cloudinary
 * [Axios](https://unpkg.com/axios/dist/axios.min.js) - Cloudinary
 * [GoogleAPI](https://maps.googleapis.com/maps/api/js?key=Aqui_TU_KEY&libraries=places&callback=initMap) - Google Maps
